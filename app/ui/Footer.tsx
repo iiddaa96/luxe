@@ -62,14 +62,13 @@ function Footer() {
           FOLLOW US
         </Typography>
         <Typography sx={{ fontSize: "14px" }}>
-          <FacebookIcon sx={{ fontSize: "2rem" }}></FacebookIcon> Facebook
+          <FacebookIcon /> Facebook
         </Typography>
         <Typography sx={{ fontSize: "14px" }}>
-          <InstagramIcon sx={{ fontSize: "2rem" }}></InstagramIcon> Instagram
+          <InstagramIcon /> Instagram
         </Typography>
         <Typography sx={{ fontSize: "14px" }}>
-          {" "}
-          <YouTubeIcon sx={{ fontSize: "2rem" }}></YouTubeIcon> Youtube
+          <YouTubeIcon /> YouTube
         </Typography>
       </Box>
     </Box>
