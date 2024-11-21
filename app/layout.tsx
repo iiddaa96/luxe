@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import Footer from "./ui/Footer";
 import ResponsiveAppBar from "./ui/ResponsiveAppBar";
 
 interface LayoutProps {
@@ -11,6 +12,7 @@ export default function RootLayout({ children }: LayoutProps) {
       <body style={{ margin: "0" }}>
         <ResponsiveAppBar />
         {children}
+        <Footer />
       </body>
     </html>
   );
