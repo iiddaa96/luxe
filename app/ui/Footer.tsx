@@ -31,13 +31,12 @@ function Footer() {
         }}
       >
         <Typography sx={{ fontSize: "14px", fontWeight: "bold" }}>
-          Contact us here:
+          CONTACT
         </Typography>
         <Typography sx={{ fontSize: "14px" }}>L U X E </Typography>
         <Typography sx={{ fontSize: "14px" }}>Hittepå gatan 01</Typography>
         <Typography sx={{ fontSize: "14px" }}>442 11 Göteborg</Typography>
       </Box>
-
       <Box
         sx={{
           "@media (max-width: 600px)": {
@@ -45,15 +44,13 @@ function Footer() {
           },
         }}
       >
-        <Typography sx={{ textAlign: "center", fontSize: "14px" }}>
-          ©️ Copyright av
+        <Typography sx={{ fontSize: "14px", fontWeight: "bold" }}>
+          INFORMATION
         </Typography>
-        <Typography sx={{ fontSize: "14px" }}>LUXE Company</Typography>
-        <Typography sx={{ fontSize: "14px" }}>
-          Copyright @IdaCasperson
-        </Typography>
+        <Typography sx={{ fontSize: "14px" }}>Cookies </Typography>
+        <Typography sx={{ fontSize: "14px" }}>Privacy Policy</Typography>
+        <Typography sx={{ fontSize: "14px" }}>Terms of purchase</Typography>
       </Box>
-
       <Box
         sx={{
           "@media (max-width: 600px)": {
@@ -61,14 +58,19 @@ function Footer() {
           },
         }}
       >
-        <Typography
-          sx={{ textAlign: "center", fontSize: "14px", fontWeight: "bold" }}
-        >
-          Follow us!
+        <Typography sx={{ fontSize: "14px", fontWeight: "bold" }}>
+          FOLLOW US
         </Typography>
-        <FacebookIcon sx={{ fontSize: "2rem" }}></FacebookIcon>
-        <InstagramIcon sx={{ fontSize: "2rem" }}></InstagramIcon>
-        <YouTubeIcon sx={{ fontSize: "2rem" }}></YouTubeIcon>
+        <Typography sx={{ fontSize: "14px" }}>
+          <FacebookIcon sx={{ fontSize: "2rem" }}></FacebookIcon> Facebook
+        </Typography>
+        <Typography sx={{ fontSize: "14px" }}>
+          <InstagramIcon sx={{ fontSize: "2rem" }}></InstagramIcon> Instagram
+        </Typography>
+        <Typography sx={{ fontSize: "14px" }}>
+          {" "}
+          <YouTubeIcon sx={{ fontSize: "2rem" }}></YouTubeIcon> Youtube
+        </Typography>
       </Box>
     </Box>
   );
