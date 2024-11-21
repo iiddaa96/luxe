@@ -1,6 +1,7 @@
 import {
   Box,
   Card,
+  CardActionArea,
   CardContent,
   CardMedia,
   Grid,
@@ -10,6 +11,7 @@ import Image from "next/image";
 import MiddleImage from "./assets/smink4.jpg";
 
 export default async function Home() {
+  const cardStyle = { width: 280, height: 310 }; // Fasta dimensioner för kort
   return (
     <main>
       <Box
@@ -86,40 +88,31 @@ export default async function Home() {
           marginBottom: "24px",
         }}
       >
-        <Grid container spacing={4}>
-          <Card
-            sx={{
-              maxWidth: 345,
-              height: "100%",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              m: "auto",
-              boxShadow: 3,
-              position: "relative",
-            }}
-          >
-            <CardMedia
-              component="img"
-              width="auto"
-              height="200"
-              image="https://images.unsplash.com/photo-1606876430311-6b09172238b9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            />
+        <Grid container spacing={2} justifyContent="center">
+          <Grid sx={{ marginBottom: "24px" }} item>
+            <Card sx={{ ...cardStyle, margin: 1 }}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  image="https://images.unsplash.com/photo-1609126785261-f3d484e75a31?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWFrZXVwJTIwcHJvZHVjdHN8ZW58MHx8MHx8fDA%3D"
+                  alt="green iguana"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="subtitle1" component="div">
+                    Titel
+                  </Typography>
 
-            <CardContent>
-              <Typography gutterBottom variant="subtitle1" component="div">
-                Titel
-              </Typography>
-
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                sx={{ fontSize: "0.8rem" }}
-              >
-                kr
-              </Typography>
-            </CardContent>
-          </Card>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ fontSize: "0.8rem" }}
+                  >
+                    kr
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
         </Grid>
       </Box>
     </main>
