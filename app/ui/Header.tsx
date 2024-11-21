@@ -134,21 +134,38 @@ const Header: React.FC<HeaderProps> = ({
         >
           <Button
             component={Link}
-            href="/about us"
-            color="inherit"
-            sx={{ padding: "10px" }}
-            onClick={handleCloseNavMenu}
-          >
-            About us
-          </Button>
-          <Button
-            component={Link}
             href="/favorite"
             color="inherit"
             sx={{ padding: "10px" }}
             onClick={handleCloseNavMenu}
           >
             Favorite
+          </Button>
+          <Button
+            component={Link}
+            href="/Categories"
+            color="inherit"
+            sx={{ padding: "10px" }}
+            onClick={handleCloseNavMenu}
+          >
+            Categories
+          </Button>
+          <Button
+            component={Link}
+            href="/How to"
+            color="inherit"
+            sx={{ padding: "10px" }}
+          >
+            How to !
+          </Button>
+          <Button
+            component={Link}
+            href="/about us"
+            color="inherit"
+            sx={{ padding: "10px" }}
+            onClick={handleCloseNavMenu}
+          >
+            About us
           </Button>
           <Button
             component={Link}

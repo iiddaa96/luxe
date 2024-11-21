@@ -36,11 +36,19 @@ const Subheader: React.FC = () => {
         </Button>
         <Button
           component={Link}
-          href="/about us"
+          href="/Categories"
           color="inherit"
           sx={{ padding: "10px" }}
         >
-          About us
+          Categories
+        </Button>
+        <Button
+          component={Link}
+          href="/How to"
+          color="inherit"
+          sx={{ padding: "10px" }}
+        >
+          How to !
         </Button>
         <Button
           component={Link}
@@ -49,6 +57,14 @@ const Subheader: React.FC = () => {
           sx={{ padding: "10px" }}
         >
           Favorite
+        </Button>
+        <Button
+          component={Link}
+          href="/about us"
+          color="inherit"
+          sx={{ padding: "10px" }}
+        >
+          About us
         </Button>
         <Button
           component={Link}
