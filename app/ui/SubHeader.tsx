@@ -1,4 +1,6 @@
 "use client";
+import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
+import { Badge, IconButton } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Link from "next/link";
@@ -57,6 +59,22 @@ const Subheader: React.FC = () => {
           Contact
         </Button>
       </Box>
+      <IconButton
+        component={Link}
+        href="/checkout"
+        size="large"
+        aria-label="show cart items"
+        color="inherit"
+        sx={{ p: 0 }}
+      >
+        <Badge
+          //badgeContent={totalQuantity}
+          color="secondary"
+          data-cy="cart-items-count-badge"
+        >
+          <AddShoppingCartOutlinedIcon />
+        </Badge>
+      </IconButton>
     </Box>
   );
 };

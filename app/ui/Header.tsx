@@ -1,14 +1,17 @@
-"use client";
 import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Button } from "@mui/material";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
-import Typography from "@mui/material/Typography";
+import {
+  AppBar,
+  Badge,
+  Box,
+  Button,
+  IconButton,
+  Menu,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import Link from "next/link";
-import * as React from "react";
+import React from "react";
 
 interface HeaderProps {
   handleOpenNavMenu: (event: React.MouseEvent<HTMLElement>) => void;
@@ -24,7 +27,6 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <AppBar
       position="static"
-      component="header"
       sx={{
         backgroundColor: "#ffffff",
         marginTop: "20px",
@@ -33,62 +35,82 @@ const Header: React.FC<HeaderProps> = ({
         color: "black",
       }}
     >
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          width: "100%",
-          justifyContent: "space-between",
-        }}
-      >
-        {/* Hamburger menu (visible only on mobile) */}
-        <Box sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}>
-          <IconButton
-            size="large"
-            aria-label="account of current user"
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
-            onClick={handleOpenNavMenu}
-            color="inherit"
-          >
-            <MenuIcon />
-          </IconButton>
-        </Box>
-
-        {/* Logo (centered on mobile, and positioned correctly on desktop) */}
+      <Toolbar>
         <Box
-          component={Link}
-          href="/"
           sx={{
             display: "flex",
-            justifyContent: "center",
-            flexGrow: { xs: "0.9", sm: "1" },
-            textDecoration: "none",
-            position: "absolute",
-            left: "50%",
-            transform: "translateX(-50%)",
-            marginTop: "1rem",
+            alignItems: "center",
+            width: "100%",
+            justifyContent: "space-between",
           }}
         >
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
+          {/* Hamburger menu (visible only on mobile) */}
+          <Box
+            sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
+          >
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+          </Box>
+
+          {/* Logo (centered on mobile, and positioned correctly on desktop) */}
+          <Box
+            component={Link}
+            href="/"
             sx={{
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "black",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexGrow: 1,
               textDecoration: "none",
+              marginTop: { xs: "10px", sm: "2rem" },
             }}
           >
-            LUXE
-          </Typography>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "black",
+                textDecoration: "none",
+              }}
+            >
+              LUXE
+            </Typography>
+          </Box>
+
+          {/* Cart Icon (visible only on mobile beside loggan) */}
+          <Box
+            sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
+          >
+            <IconButton
+              component={Link}
+              href="/checkout"
+              size="large"
+              aria-label="show cart items"
+              color="inherit"
+              sx={{ p: 0 }}
+            >
+              <Badge
+                // badgeContent={totalQuantity}
+                color="secondary"
+              >
+                <AddShoppingCartOutlinedIcon />
+              </Badge>
+            </IconButton>
+          </Box>
         </Box>
-        <Box sx={{ position: "absolute", right: "2rem", top: "2rem" }}>
-          <AddShoppingCartOutlinedIcon />
-        </Box>
-      </Box>
+      </Toolbar>
 
       {/* Mobil meny */}
       <Menu
@@ -107,28 +129,14 @@ const Header: React.FC<HeaderProps> = ({
         onClose={handleCloseNavMenu}
       >
         <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-around",
-            width: "100%",
-            maxWidth: "1200px",
-            flexWrap: "wrap",
-            backgroundColor: "#ffffff",
-          }}
+          sx={{ display: { xs: "flex", md: "none" }, flexDirection: "column" }}
         >
-          <Button
-            component={Link}
-            href="/admin"
-            color="inherit"
-            sx={{ padding: "10px" }}
-          >
-            Admin
-          </Button>
           <Button
             component={Link}
             href="/about us"
             color="inherit"
             sx={{ padding: "10px" }}
+            onClick={handleCloseNavMenu}
           >
             About us
           </Button>
@@ -137,6 +145,7 @@ const Header: React.FC<HeaderProps> = ({
             href="/favorite"
             color="inherit"
             sx={{ padding: "10px" }}
+            onClick={handleCloseNavMenu}
           >
             Favorite
           </Button>
@@ -145,6 +154,7 @@ const Header: React.FC<HeaderProps> = ({
             href="/contact"
             color="inherit"
             sx={{ padding: "10px" }}
+            onClick={handleCloseNavMenu}
           >
             Contact
           </Button>
