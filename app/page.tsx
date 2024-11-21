@@ -115,6 +115,32 @@ export default async function Home() {
           </Grid>
         </Grid>
       </Box>
+      <Box
+        sx={{
+          width: "95%",
+          justifyContent: "center",
+          position: "relative",
+          margin: "32px auto",
+          display: "flex",
+          alignItems: "center",
+          marginBottom: "24px",
+        }}
+      >
+        <div
+          style={{
+            width: "99%",
+            height: "60vh",
+            overflow: "hidden",
+            position: "relative",
+          }}
+        >
+          <CardMedia
+            component="img"
+            image="https://caiacosmetics.se/dokument/bibliotek/Image/CAIA_HP_MID_BANNER_DESKTOP_RADIANT_TOUCH_LAUNCH_GIF_OCT_24.webp"
+            alt="LastImage"
+          />
+        </div>
+      </Box>
     </main>
   );
 }
