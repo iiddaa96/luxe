@@ -68,6 +68,7 @@ const Subheader: React.FC = () => {
         sx={{ p: 0 }}
       >
         <Badge
+          sx={{ marginRight: "-10rem" }}
           //badgeContent={totalQuantity}
           color="secondary"
           data-cy="cart-items-count-badge"

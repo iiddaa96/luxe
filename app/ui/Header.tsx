@@ -102,6 +102,7 @@ const Header: React.FC<HeaderProps> = ({
               sx={{ p: 0 }}
             >
               <Badge
+                sx={{ marginRight: "5px" }}
                 // badgeContent={totalQuantity}
                 color="secondary"
               >
