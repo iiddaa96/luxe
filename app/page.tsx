@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import Image from "next/image";
-import MiddleImage from "./assets/color.jpg";
+import MiddleImage from "./assets/smink4.jpg";
 
 export default async function Home() {
   return (
@@ -15,22 +15,67 @@ export default async function Home() {
       <Box
         sx={{
           width: "95%",
-          height: "200px",
           justifyContent: "center",
           position: "relative",
-          paddingTop: "30%",
-          margin: "32px auto",
+          margin: "20px auto",
           display: "flex",
           alignItems: "center",
           marginBottom: "24px",
+          "@media (max-width: 600px)": {
+            display: "none",
+          },
         }}
       >
-        <Image
-          src={MiddleImage}
-          alt="Stor Bild"
-          layout="fill"
-          objectFit="cover"
-        />
+        <div
+          style={{
+            width: "99%",
+            height: "60vh",
+            overflow: "hidden",
+            position: "relative",
+          }}
+        >
+          <Image
+            src={MiddleImage}
+            alt="Stor Bild"
+            layout="fill"
+            objectFit="cover"
+          />
+          <Typography
+            variant="h3"
+            component="div"
+            sx={{
+              position: "absolute",
+              color: "white",
+              textShadow: "1px 1px 2px #000000",
+              textAlign: "left",
+              width: "auto",
+              top: "55%",
+              left: "60px",
+              transform: "translateY(-50%)",
+              fontWeight: "bold",
+            }}
+          >
+            L U X E
+          </Typography>
+          <Typography
+            variant="h3"
+            component="div"
+            sx={{
+              position: "absolute",
+              color: "white",
+              fontStyle: "italic",
+              textShadow: "1px 1px 2px #000000",
+              textAlign: "right",
+              width: "auto",
+              top: "53%",
+              right: "50px",
+              transform: "translateY(-50%)",
+              fontWeight: "bold",
+            }}
+          >
+            Where makeup lasts all day
+          </Typography>
+        </div>
       </Box>
 
       <Box
