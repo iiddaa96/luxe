@@ -34,8 +34,13 @@ function Contact() {
             transform: "translate(-50%, -50%)",
           }}
         >
-          <Typography variant="h5" component="h2" gutterBottom>
-            Contact Us
+          <Typography
+            sx={{ textAlign: "center" }}
+            variant="h5"
+            component="h2"
+            gutterBottom
+          >
+            CONTACT US
           </Typography>
           <form>
             <TextField
@@ -64,10 +69,16 @@ function Contact() {
             <Button
               type="submit"
               variant="contained"
-              color="primary"
-              sx={{ marginTop: "16px" }}
+              sx={{
+                marginTop: "16px",
+                color: "black",
+                backgroundColor: "rgba(255, 215, 215, 0.73)",
+                "&:hover": {
+                  backgroundColor: "rgba(255, 215, 215, 0.918)",
+                },
+              }}
             >
-              Submit
+              Send
             </Button>
           </form>
         </Box>
