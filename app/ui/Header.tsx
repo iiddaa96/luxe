@@ -152,11 +152,11 @@ const Header: React.FC<HeaderProps> = ({
           </Button>
           <Button
             component={Link}
-            href="/How to"
+            href="/tutorial"
             color="inherit"
             sx={{ padding: "10px" }}
           >
-            How to !
+            Tutorial
           </Button>
           <Button
             component={Link}
