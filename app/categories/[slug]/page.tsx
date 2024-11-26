@@ -1,4 +1,3 @@
-// import AddToCartButton from "@/app/ui/AddToCartButton";
 import db from "@/prisma/db";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";

@@ -15,6 +15,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import MiddleImage from "./assets/smink4.jpg";
+import ProductSlider from "./ui/CategorySlider";
 
 export default async function Home() {
   const products = await db.product.findMany({
@@ -89,7 +90,8 @@ export default async function Home() {
           </Typography>
         </div>
       </Box>
-
+      {/* Lägg till produkt slider här */}
+      <ProductSlider />
       {/* Mappar ut produkt */}
       <Box>
         <Grid container spacing={2} justifyContent="center">
@@ -118,7 +120,7 @@ export default async function Home() {
                         variant="body2"
                         color="text.secondary"
                       >
-                        {product.price} kr
+                        {product.price} EUR €
                       </Typography>
                     </CardContent>
                   </CardActionArea>
