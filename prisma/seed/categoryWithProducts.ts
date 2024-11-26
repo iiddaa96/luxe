@@ -61,7 +61,7 @@ const categoriesData: CategoriesData[] = [
     products: [
       {
         image:
-          "https://homeofess.com/pub_images/original/charlieston12.jpg?extend=copy&width=800&method=crop&height=800&type=webp",
+          "https://www.kicks.se/globalassets/integrationimages/192608231679.jpg?ref=1010609&hasAlpha=false&w=960&preset=background",
         alt: "Morphe - Neutral Artistry Palette",
         title: "Morphe - Neutral Artistry Palette",
         price: 199,
