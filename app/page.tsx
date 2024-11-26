@@ -1,3 +1,8 @@
+import db from "@/prisma/db";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
 import {
   Box,
   Card,
@@ -8,10 +13,15 @@ import {
   Typography,
 } from "@mui/material";
 import Image from "next/image";
+import Link from "next/link";
 import MiddleImage from "./assets/smink4.jpg";
 
 export default async function Home() {
-  const cardStyle = { width: 280, height: 310 }; // Fasta dimensioner för kort
+  const products = await db.product.findMany({
+    orderBy: { id: "desc" },
+  });
+
+  const cardStyle = { width: 280, height: 310 };
   return (
     <main>
       <Box
@@ -79,40 +89,42 @@ export default async function Home() {
           </Typography>
         </div>
       </Box>
-
-      <Box
-        sx={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "0 24px",
-          marginBottom: "24px",
-        }}
-      >
+      {/* Mappar ut produkt */}
+      <Box>
         <Grid container spacing={2} justifyContent="center">
-          <Grid sx={{ marginBottom: "24px" }} item>
-            <Card sx={{ ...cardStyle, margin: 1 }}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  image="https://images.unsplash.com/photo-1609126785261-f3d484e75a31?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWFrZXVwJTIwcHJvZHVjdHN8ZW58MHx8MHx8fDA%3D"
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="subtitle1" component="div">
-                    Titel
-                  </Typography>
-
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    sx={{ fontSize: "0.8rem" }}
-                  >
-                    kr
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Grid>
+          {products.map((product) => (
+            <Grid sx={{ marginBottom: "24px" }} item key={product.id}>
+              <Link href={`/product/${product.id}`} passHref>
+                <Card sx={{ ...cardStyle, margin: 1 }}>
+                  <CardActionArea>
+                    <CardMedia
+                      sx={{ height: 200, objectFit: "cover" }}
+                      component="img"
+                      image={product.image}
+                      alt={product.title}
+                    />
+                    <CardContent>
+                      <Typography
+                        sx={{ fontSize: "1.1rem", fontWeight: "bold" }}
+                        gutterBottom
+                        variant="h6"
+                        component="div"
+                      >
+                        {product.title}
+                      </Typography>
+                      <Typography
+                        sx={{ fontSize: "1rem", fontWeight: "medium" }}
+                        variant="body2"
+                        color="text.secondary"
+                      >
+                        {product.price} kr
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Link>
+            </Grid>
+          ))}
         </Grid>
       </Box>
       <Box

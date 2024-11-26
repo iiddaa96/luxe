@@ -1,8 +1,6 @@
-import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 import {
   AppBar,
-  Badge,
   Box,
   Button,
   IconButton,
@@ -12,6 +10,7 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import React from "react";
+import CategoryCards from "./CategoryCards";
 
 interface HeaderProps {
   handleOpenNavMenu: (event: React.MouseEvent<HTMLElement>) => void;
@@ -90,7 +89,7 @@ const Header: React.FC<HeaderProps> = ({
           </Box>
 
           {/* Cart Icon (visible only on mobile beside loggan) */}
-          <Box
+          {/* <Box
             sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
           >
             <IconButton
@@ -109,7 +108,7 @@ const Header: React.FC<HeaderProps> = ({
                 <AddShoppingCartOutlinedIcon />
               </Badge>
             </IconButton>
-          </Box>
+          </Box> */}
         </Box>
       </Toolbar>
 
@@ -143,15 +142,6 @@ const Header: React.FC<HeaderProps> = ({
           </Button>
           <Button
             component={Link}
-            href="/Categories"
-            color="inherit"
-            sx={{ padding: "10px" }}
-            onClick={handleCloseNavMenu}
-          >
-            Categories
-          </Button>
-          <Button
-            component={Link}
             href="/tutorial"
             color="inherit"
             sx={{ padding: "10px" }}
@@ -176,6 +166,7 @@ const Header: React.FC<HeaderProps> = ({
           >
             Contact
           </Button>
+          <CategoryCards />
         </Box>
       </Menu>
     </AppBar>
