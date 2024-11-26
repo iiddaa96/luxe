@@ -4,7 +4,6 @@ import NavigateBeforeSharpIcon from "@mui/icons-material/NavigateBeforeSharp";
 import NavigateNextSharpIcon from "@mui/icons-material/NavigateNextSharp";
 import {
   Box,
-  Button,
   Card,
   CardActionArea,
   CardContent,
@@ -12,10 +11,35 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
+import { GetServerSideProps } from "next";
 import Link from "next/link";
 import { useRef, useState } from "react";
 
-export default function CategorySlider() {
+// Server-side rendering för att hämta produkter
+export const getServerSideProps: GetServerSideProps = async () => {
+  // Hämta produkter från databasen
+  const products = await db.product.findMany({
+    orderBy: { id: "desc" },
+  });
+
+  // Returnera som props
+  return {
+    props: { products },
+  };
+};
+
+interface Product {
+  id: number;
+  title: string;
+  price: string;
+  image: string;
+}
+
+interface CategorySliderProps {
+  products: Product[];
+}
+
+const CategorySlider = ({ products }: CategorySliderProps) => {
   const bestSellerRef = useRef<HTMLDivElement | null>(null);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
@@ -27,10 +51,6 @@ export default function CategorySlider() {
       });
     }
   };
-
-  const products = await db.product.findMany({
-    orderBy: { id: "desc" },
-  });
 
   return (
     <Box
@@ -153,108 +173,6 @@ export default function CategorySlider() {
                 <Typography variant="body2">EUR {product.price}€</Typography>
               </CardContent>
             </CardActionArea>
-
-            {/* Overlay for buttons */}
-            <Box
-              className="hover-overlay"
-              sx={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                right: 0,
-                backgroundColor: "#FAFAFB",
-                color: "#fff",
-                display: {
-                  xs: "flex",
-                  md: "none",
-                },
-                "@media (min-width: 900px) and (max-width: 1024px)": {
-                  display: "flex", // Lägg till i tema
-                },
-                justifyContent: "space-around",
-                alignItems: "center",
-                padding: "0.2rem",
-                zIndex: 1,
-              }}
-            >
-              <Button
-                variant="contained"
-                color="primary"
-                sx={{
-                  backgroundColor: "#000",
-                  borderRadius: 0,
-                  boxShadow: "none",
-                  width: "100%",
-                  boxSizing: "border-box",
-                }}
-              >
-                ADD TO BAG
-              </Button>
-            </Box>
-
-            <Box
-              className="hover-overlay-desktop"
-              sx={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                right: 0,
-                backgroundColor: "#FAFAFB",
-                color: "#fff",
-                display: {
-                  xs: "none",
-                  md: "flex",
-                },
-                "@media (min-width: 900px) and (max-width: 1024px)": {
-                  display: "none", // Lägg till i tema
-                },
-                justifyContent: "space-around",
-                alignItems: "center",
-                padding: "0.2rem",
-                transform: "translateY(100%)",
-                transition: "transform 0.3s ease",
-                ...(hoveredCard === product.id && {
-                  transform: "translateY(0)",
-                }),
-              }}
-            >
-              <Button
-                variant="contained"
-                color="primary"
-                sx={{
-                  backgroundColor: "#000",
-                  borderRadius: 0,
-                  boxShadow: "none",
-                  width: "48%",
-                  boxSizing: "border-box",
-                }}
-              >
-                ADD TO BAG
-              </Button>
-              <Link
-                key={product.id}
-                href={`/product/${product.id}`}
-                passHref
-                style={{
-                  textDecoration: "none",
-                  width: "45%",
-                }}
-              >
-                <Button
-                  variant="contained"
-                  color="primary"
-                  sx={{
-                    backgroundColor: "#000",
-                    borderRadius: 0,
-                    boxShadow: "none",
-                    width: "100%",
-                    boxSizing: "border-box",
-                  }}
-                >
-                  VIEW MORE
-                </Button>
-              </Link>
-            </Box>
           </Card>
         ))}
       </Box>
@@ -308,4 +226,6 @@ export default function CategorySlider() {
       </IconButton>
     </Box>
   );
-}
+};
+
+export default CategorySlider;

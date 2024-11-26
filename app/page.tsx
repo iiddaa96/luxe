@@ -89,6 +89,7 @@ export default async function Home() {
           </Typography>
         </div>
       </Box>
+
       {/* Mappar ut produkt */}
       <Box>
         <Grid container spacing={2} justifyContent="center">
