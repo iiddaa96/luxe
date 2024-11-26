@@ -90,8 +90,35 @@ export default async function Home() {
           </Typography>
         </div>
       </Box>
-      {/* Lägg till produkt slider här */}
+      {/* produkt slider här */}
       <ProductSlider />
+      <Box
+        sx={{
+          width: "95%",
+          justifyContent: "center",
+          position: "relative",
+          margin: "32px auto",
+          display: "flex",
+          alignItems: "center",
+          marginBottom: "24px",
+        }}
+      >
+        <div
+          style={{
+            width: "99%",
+            height: "60vh",
+            overflow: "hidden",
+            position: "relative",
+            marginBottom: "2rem",
+          }}
+        >
+          <CardMedia
+            component="img"
+            image="https://caiacosmetics.se/dokument/bibliotek/Image/CAIA_HP_MID_BANNER_DESKTOP_RADIANT_TOUCH_LAUNCH_GIF_OCT_24.webp"
+            alt="LastImage"
+          />
+        </div>
+      </Box>
       {/* Mappar ut produkt */}
       <Box>
         <Grid container spacing={2} justifyContent="center">
@@ -108,9 +135,9 @@ export default async function Home() {
                     />
                     <CardContent>
                       <Typography
-                        sx={{ fontSize: "1.1rem", fontWeight: "bold" }}
+                        sx={{ fontSize: "0.9rem", fontWeight: "bold" }}
                         gutterBottom
-                        variant="h6"
+                        variant="body1"
                         component="div"
                       >
                         {product.title}
@@ -129,32 +156,6 @@ export default async function Home() {
             </Grid>
           ))}
         </Grid>
-      </Box>
-      <Box
-        sx={{
-          width: "95%",
-          justifyContent: "center",
-          position: "relative",
-          margin: "32px auto",
-          display: "flex",
-          alignItems: "center",
-          marginBottom: "24px",
-        }}
-      >
-        <div
-          style={{
-            width: "99%",
-            height: "60vh",
-            overflow: "hidden",
-            position: "relative",
-          }}
-        >
-          <CardMedia
-            component="img"
-            image="https://caiacosmetics.se/dokument/bibliotek/Image/CAIA_HP_MID_BANNER_DESKTOP_RADIANT_TOUCH_LAUNCH_GIF_OCT_24.webp"
-            alt="LastImage"
-          />
-        </div>
       </Box>
     </main>
   );

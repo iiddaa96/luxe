@@ -93,7 +93,7 @@ export default function ProductSliderClient({
               >
                 <Typography
                   variant="h6"
-                  sx={{ fontSize: "1.1rem", fontWeight: "bold" }}
+                  sx={{ fontSize: "0.9rem", fontWeight: "bold" }}
                 >
                   {product.title}
                 </Typography>
