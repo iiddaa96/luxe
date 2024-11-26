@@ -2,11 +2,11 @@
 CREATE TABLE "Product" (
     "id" SERIAL NOT NULL,
     "title" TEXT NOT NULL,
-    "alt" TEXT NOT NULL,
     "image" TEXT NOT NULL,
+    "alt" TEXT NOT NULL,
     "price" INTEGER NOT NULL,
-    "description" TEXT NOT NULL,
-    "inventory" INTEGER NOT NULL DEFAULT 0,
+    "content" TEXT NOT NULL,
+    "isArchived" BOOLEAN NOT NULL DEFAULT false,
 
     CONSTRAINT "Product_pkey" PRIMARY KEY ("id")
 );
@@ -17,6 +17,16 @@ CREATE TABLE "Category" (
     "name" TEXT NOT NULL,
 
     CONSTRAINT "Category_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "OrderDetails" (
+    "orderId" INTEGER NOT NULL,
+    "productId" INTEGER NOT NULL,
+    "quantity" INTEGER NOT NULL,
+    "subTotal" INTEGER NOT NULL,
+
+    CONSTRAINT "OrderDetails_pkey" PRIMARY KEY ("orderId","productId")
 );
 
 -- CreateTable
@@ -33,6 +43,9 @@ CREATE UNIQUE INDEX "_CategoryToProduct_AB_unique" ON "_CategoryToProduct"("A", 
 
 -- CreateIndex
 CREATE INDEX "_CategoryToProduct_B_index" ON "_CategoryToProduct"("B");
+
+-- AddForeignKey
+ALTER TABLE "OrderDetails" ADD CONSTRAINT "OrderDetails_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "_CategoryToProduct" ADD CONSTRAINT "_CategoryToProduct_A_fkey" FOREIGN KEY ("A") REFERENCES "Category"("id") ON DELETE CASCADE ON UPDATE CASCADE;

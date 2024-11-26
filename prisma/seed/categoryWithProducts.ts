@@ -25,6 +25,7 @@ type CategoriesData = {
     image: string;
     alt: string;
     price: number;
+    isArchived?: boolean;
   }[];
 };
 
@@ -41,6 +42,7 @@ const categoriesData: CategoriesData[] = [
         price: 329,
         content:
           "YSL LOVESHINE is a high-gloss lipstick that gives lips a wet look. The moisturizing and nourishing formula leaves your lips feeling cared for and protected. Easy to apply, it glides smoothly on the lips. Apply multiple layers for more gloss and color. Experience our unique transforming and melting formula – from lipstick to high-gloss lip oil. Treat yourself to delicious colors that are easy to build, from delicate semi-transparent to eye-catching, high-gloss lips! Discover the upgraded formula of the iconic Rouge Volupté Shine in a new silver packaging. The nourishing formula keeps your lips feeling hydrated, cared for, and protected.",
+        isArchived: false,
       },
       {
         image:
@@ -50,6 +52,7 @@ const categoriesData: CategoriesData[] = [
         price: 149,
         content:
           "Superstar Vinyl Ink Lipstick is a liquid lipstick with a vinyl finish. The formula is long-lasting and has a high color payoff. The lipstick is easy to apply and has a comfortable texture. The lipstick is available in several shades, from nude to bold colors. The lipstick is vegan and cruelty-free. Superstar Vinyl Ink Lipstick is a liquid lipstick with a vinyl finish. The formula is long-lasting and has a high color payoff. The lipstick is easy to apply and has a comfortable texture. The lipstick is available in several shades, from nude to bold colors. The lipstick is vegan and cruelty-free.",
+        isArchived: false,
       },
     ],
   },
@@ -64,6 +67,7 @@ const categoriesData: CategoriesData[] = [
         price: 199,
         content:
           "Switch up to these neutral shades that are easy to apply and use. These stunning shades can be mixed and matched, so you'll always create a beautiful look. SHADES (row 1): Bare Play, Make a Deal, Straight Up (row 2): Midi, Pact, Promise (row 3): Halfway, Open Mind, Win-Win.",
+        isArchived: false,
       },
       {
         image:
@@ -73,6 +77,7 @@ const categoriesData: CategoriesData[] = [
         price: 399,
         content:
           "Contains nine richly pigmented eyeshadows in matte, shimmering, and sparkling shades. The eyeshadows can be used separately or blended to create your own custom look. The formula, which is extremely easy to blend, is effortless to work with and lasts from morning to evening. 100% Vegan and made in Italy. BeautyAct delivers skincare-infused and multifunctional makeup designed for an active lifestyle. The Bare To Go Eyeshadow Palette contains nine richly pigmented eyeshadows in matte, shimmering, and sparkling shades.",
+        isArchived: false,
       },
     ],
   },
@@ -87,6 +92,7 @@ const categoriesData: CategoriesData[] = [
         price: 344,
         content:
           "Lumene Natural Glow Foundation is a lightweight foundation that provides a natural glow. The foundation has a medium coverage and is easy to build. The formula is enriched with Nordic lingonberry and hyaluronic acid, which moisturizes and nourishes the skin. The foundation is available in several shades and is suitable for all skin types. Lumene Natural Glow Foundation is a lightweight foundation that provides a natural glow. The foundation has a medium coverage and is easy to build. The formula is enriched with Nordic lingonberry and hyaluronic acid, which moisturizes and nourishes the skin. The foundation is available in several shades and is suitable for all skin types.",
+        isArchived: false,
       },
       {
         image:
@@ -96,6 +102,7 @@ const categoriesData: CategoriesData[] = [
         price: 445,
         content:
           "Clinique Even Better Foundation is a liquid foundation that provides a natural finish. The foundation has a medium coverage and is easy to build. The formula is enriched with vitamin C and hyaluronic acid, which moisturizes and nourishes the skin. The foundation is available in several shades and is suitable for all skin types. Clinique Even Better Foundation is a liquid foundation that provides a natural finish. The foundation has a medium coverage and is easy to build. The formula is enriched with vitamin C and hyaluronic acid, which moisturizes and nourishes the skin. The foundation is available in several shades and is suitable for all skin types.",
+        isArchived: false,
       },
     ],
   },
@@ -110,6 +117,7 @@ const categoriesData: CategoriesData[] = [
         price: 149,
         content:
           "Maybelline Tattoo Liner Ink Pen is a liquid eyeliner with a felt tip. The eyeliner has a long-lasting formula that is smudge-proof and waterproof. The eyeliner is easy to apply and has a high color payoff. The eyeliner is available in several shades, from black to bold colors. Maybelline Tattoo Liner Ink Pen is a liquid eyeliner with a felt tip. The eyeliner has a long-lasting formula that is smudge-proof and waterproof. The eyeliner is easy to apply and has a high color payoff. The eyeliner is available in several shades, from black to bold colors.",
+        isArchived: false,
       },
       {
         image:
@@ -119,6 +127,7 @@ const categoriesData: CategoriesData[] = [
         price: 280,
         content:
           "Clinique Quickliner For Eyes is an automatic eyeliner pencil. The eyeliner has a long-lasting formula that is smudge-proof and waterproof. The eyeliner is easy to apply and has a high color payoff. The eyeliner is available in several shades, from black to bold colors. Clinique Quickliner For Eyes is an automatic eyeliner pencil. The eyeliner has a long-lasting formula that is smudge-proof and waterproof. The eyeliner is easy to apply and has a high color payoff. The eyeliner is available in several shades, from black to bold colors.",
+        isArchived: false,
       },
     ],
   },
