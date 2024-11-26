@@ -15,6 +15,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import MiddleImage from "./assets/smink4.jpg";
+import ProductSlider from "./ui/CategorySlider";
 
 export default async function Home() {
   const products = await db.product.findMany({
@@ -89,44 +90,8 @@ export default async function Home() {
           </Typography>
         </div>
       </Box>
-      {/* Mappar ut produkt */}
-      <Box>
-        <Grid container spacing={2} justifyContent="center">
-          {products.map((product) => (
-            <Grid sx={{ marginBottom: "24px" }} item key={product.id}>
-              <Link href={`/product/${product.id}`} passHref>
-                <Card sx={{ ...cardStyle, margin: 1 }}>
-                  <CardActionArea>
-                    <CardMedia
-                      sx={{ height: 200, objectFit: "cover" }}
-                      component="img"
-                      image={product.image}
-                      alt={product.title}
-                    />
-                    <CardContent>
-                      <Typography
-                        sx={{ fontSize: "1.1rem", fontWeight: "bold" }}
-                        gutterBottom
-                        variant="h6"
-                        component="div"
-                      >
-                        {product.title}
-                      </Typography>
-                      <Typography
-                        sx={{ fontSize: "1rem", fontWeight: "medium" }}
-                        variant="body2"
-                        color="text.secondary"
-                      >
-                        {product.price} kr
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </Link>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
+      {/* produkt slider här */}
+      <ProductSlider />
       <Box
         sx={{
           width: "95%",
@@ -144,6 +109,7 @@ export default async function Home() {
             height: "60vh",
             overflow: "hidden",
             position: "relative",
+            marginBottom: "2rem",
           }}
         >
           <CardMedia
@@ -152,6 +118,44 @@ export default async function Home() {
             alt="LastImage"
           />
         </div>
+      </Box>
+      {/* Mappar ut produkt */}
+      <Box>
+        <Grid container spacing={2} justifyContent="center">
+          {products.map((product) => (
+            <Grid sx={{ marginBottom: "24px" }} item key={product.id}>
+              <Link href={`/product/${product.id}`} passHref>
+                <Card sx={{ ...cardStyle, margin: 1 }}>
+                  <CardActionArea>
+                    <CardMedia
+                      sx={{ height: 200, objectFit: "cover" }}
+                      component="img"
+                      image={product.image}
+                      alt={product.title}
+                    />
+                    <CardContent>
+                      <Typography
+                        sx={{ fontSize: "0.9rem", fontWeight: "bold" }}
+                        gutterBottom
+                        variant="body1"
+                        component="div"
+                      >
+                        {product.title}
+                      </Typography>
+                      <Typography
+                        sx={{ fontSize: "1rem", fontWeight: "medium" }}
+                        variant="body2"
+                        color="text.secondary"
+                      >
+                        {product.price} EUR €
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Link>
+            </Grid>
+          ))}
+        </Grid>
       </Box>
     </main>
   );
