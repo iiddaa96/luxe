@@ -1,6 +1,8 @@
+import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 import {
   AppBar,
+  Badge,
   Box,
   Button,
   IconButton,
@@ -89,7 +91,7 @@ const Header: React.FC<HeaderProps> = ({
           </Box>
 
           {/* Cart Icon (visible only on mobile beside loggan) */}
-          {/* <Box
+          <Box
             sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
           >
             <IconButton
@@ -108,7 +110,7 @@ const Header: React.FC<HeaderProps> = ({
                 <AddShoppingCartOutlinedIcon />
               </Badge>
             </IconButton>
-          </Box> */}
+          </Box>
         </Box>
       </Toolbar>
 

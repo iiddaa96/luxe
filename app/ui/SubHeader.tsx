@@ -1,4 +1,6 @@
 "use client";
+import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
+import { Badge, IconButton } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Link from "next/link";
@@ -67,7 +69,7 @@ const Subheader: React.FC = () => {
             Contact
           </Button>
         </Box>
-        {/* <IconButton
+        <IconButton
           component={Link}
           href="/checkout"
           size="large"
@@ -83,7 +85,7 @@ const Subheader: React.FC = () => {
           >
             <AddShoppingCartOutlinedIcon />
           </Badge>
-        </IconButton> */}
+        </IconButton>
       </Box>
       <Box
         sx={{
