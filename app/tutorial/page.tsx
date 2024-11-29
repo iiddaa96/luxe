@@ -44,7 +44,8 @@ function Tutorial() {
                 component="img"
                 height="200"
                 image="https://caiacosmetics.se/img/dokument/bibliotek/Image/CAIA_HP_MENY_DESKTOP_CATEGORY_BRUSHES_AND_TOOLS_OCT_24.jpg?w=1000"
-                alt="Placeholder Image 1"
+                alt="Girl with makeup brush"
+                aria-label="Girl with makeup brush"
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
@@ -59,7 +60,8 @@ function Tutorial() {
                 component="img"
                 height="200"
                 image="https://bethbenderbeauty.com/cdn/shop/articles/38890936_s_923a7fa5-65d1-4c3d-b960-52cf377c2a90.jpg?v=1646253403"
-                alt="Placeholder Image 2"
+                alt="Girl with eyeshadow"
+                aria-label="Girl with eyeshadow"
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
@@ -74,7 +76,8 @@ function Tutorial() {
                 component="img"
                 height="200"
                 image="https://caiacosmetics.se/img/925/1078//bilder/artiklar/zoom/CAI457_2.jpg?m=1714638774?quality=100"
-                alt="Placeholder Image 3"
+                alt="Lips with lipstick"
+                aria-label="Lips with lipstick"
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">

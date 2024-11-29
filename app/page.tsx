@@ -132,8 +132,8 @@ export default async function Home() {
                       sx={{ height: 200, objectFit: "cover" }}
                       component="img"
                       image={product.image}
-                      alt={product.title}
-                      aria-label="product image"
+                      alt={product.alt}
+                      aria-label={product.alt}
                     />
                     <CardContent>
                       <Typography
