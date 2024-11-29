@@ -1,8 +1,8 @@
 import AddIcon from "@mui/icons-material/Add";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { Box, Button, IconButton, Typography } from "@mui/material";
 import { useState } from "react";
-
 // Props för att definiera produkt-id och det initiala antalet
 interface QuantitySelectorProps {
   initialQuantity: number;
@@ -47,9 +47,9 @@ const QuantitySelector = ({
       <Button
         onClick={() => onUpdateQuantity(quantity)}
         variant="contained"
-        sx={{ marginLeft: 2, color: "white", backgroundColor: "black" }}
+        sx={{ marginLeft: 2, color: "black", backgroundColor: "white" }}
       >
-        Add to Cart
+        <AddShoppingCartIcon />
       </Button>
     </Box>
   );
