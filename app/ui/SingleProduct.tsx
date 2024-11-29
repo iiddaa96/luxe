@@ -1,11 +1,18 @@
+"use client";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import { Product } from "@prisma/client";
+import QuantitySelector from "./QuantitySelector";
 
 type Props = {
   product: Product;
 };
 
 export default function SingleProduct({ product }: Props) {
+  const handleUpdateQuantity = (quantity: number) => {
+    console.log(`Product ${product.id} quantity updated to: ${quantity}`);
+    // Här kan du lägga till logik för att lägga till produkten i kundvagnen
+  };
   return (
     <main>
       <Grid container spacing={2}>
@@ -58,7 +65,12 @@ export default function SingleProduct({ product }: Props) {
             <Typography variant="body2" gutterBottom>
               {product.price} kr
             </Typography>
-            {/* <AddToCartButton product={product} /> */}
+            <FavoriteIcon />
+            <QuantitySelector
+              initialQuantity={1}
+              productId={product.id}
+              onUpdateQuantity={handleUpdateQuantity}
+            />
           </Box>
         </Grid>
       </Grid>

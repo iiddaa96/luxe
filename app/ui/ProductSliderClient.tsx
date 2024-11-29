@@ -82,9 +82,9 @@ export default function ProductSliderClient({
                   src={product.image}
                   alt={product.title}
                   sx={{
-                    height: 200, // Sätt en fast höjd för bilderna
-                    width: "100%", // Sätt bredden till 100% av kortets bredd
-                    objectFit: "cover", // Se till att bilden täcker hela området utan att förvrängas
+                    height: 200,
+                    width: "100%",
+                    objectFit: "cover",
                   }}
                 />
               </Link>
@@ -98,7 +98,7 @@ export default function ProductSliderClient({
                   {product.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  EUR {product.price}€
+                  {product.price} Kr
                 </Typography>
               </CardContent>
             </CardActionArea>

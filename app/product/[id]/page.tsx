@@ -1,18 +1,20 @@
 import SingleProduct from "@/app/ui/SingleProduct";
 import db from "@/prisma/db";
 
-// Detta är server sidan för att rendera ut singel produkt sidan
 export default async function ServerForSingleProduct({
   params,
 }: {
   params: { id: string };
 }) {
-  const productId = parseInt(params.id, 10);
+  const { id } = await params;
 
-  if (isNaN(productId)) {
+  const productId = Number(id);
+
+  if (!productId || isNaN(productId)) {
     return <div>Invalid product ID</div>;
   }
 
+  // Fetch produkt data från databasen
   const product = await db.product.findUnique({
     where: { id: productId },
   });

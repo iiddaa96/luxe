@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import MiddleImage from "./assets/smink4.jpg";
+import Smink from "./assets/smink4.jpg";
 import ProductSlider from "./ui/CategorySlider";
 
 export default async function Home() {
@@ -48,10 +48,12 @@ export default async function Home() {
           }}
         >
           <Image
-            src={MiddleImage}
-            alt="Stor Bild"
-            layout="fill"
-            objectFit="cover"
+            src={Smink}
+            alt="Smink bakgrund"
+            aria-label="Smink bakgrund"
+            fill
+            style={{ objectFit: "cover" }}
+            priority
           />
           <Typography
             variant="h3"
@@ -76,14 +78,12 @@ export default async function Home() {
             sx={{
               position: "absolute",
               color: "white",
-              fontStyle: "italic",
               textShadow: "1px 1px 2px #000000",
               textAlign: "right",
               width: "auto",
-              top: "53%",
+              top: "73%",
               right: "50px",
               transform: "translateY(-50%)",
-              fontWeight: "bold",
             }}
           >
             Where makeup lasts all day
@@ -116,6 +116,7 @@ export default async function Home() {
             component="img"
             image="https://caiacosmetics.se/dokument/bibliotek/Image/CAIA_HP_MID_BANNER_DESKTOP_RADIANT_TOUCH_LAUNCH_GIF_OCT_24.webp"
             alt="LastImage"
+            aria-label="Girl with makeup"
           />
         </div>
       </Box>
@@ -132,6 +133,7 @@ export default async function Home() {
                       component="img"
                       image={product.image}
                       alt={product.title}
+                      aria-label="product image"
                     />
                     <CardContent>
                       <Typography
@@ -147,7 +149,7 @@ export default async function Home() {
                         variant="body2"
                         color="text.secondary"
                       >
-                        {product.price} EUR €
+                        {product.price} Kr
                       </Typography>
                     </CardContent>
                   </CardActionArea>

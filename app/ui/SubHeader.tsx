@@ -1,5 +1,6 @@
 "use client";
 import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Badge, IconButton } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -32,43 +33,38 @@ const Subheader: React.FC = () => {
             component={Link}
             href="/admin"
             color="inherit"
-            sx={{ padding: "10px" }}
+            sx={{ padding: "10px", fontWeight: "bold" }}
           >
             Admin
           </Button>
+          <Box
+            sx={{
+              display: {
+                xs: "none",
+                md: "block",
+              },
+            }}
+          >
+            <CategoryCards />
+          </Box>
           <Button
             component={Link}
             href="/tutorial"
             color="inherit"
-            sx={{ padding: "10px" }}
+            sx={{ padding: "10px", fontWeight: "bold" }}
           >
             Tutorial
           </Button>
-          <Button
-            component={Link}
-            href="/favorite"
-            color="inherit"
-            sx={{ padding: "10px" }}
-          >
-            Favorite
-          </Button>
-          <Button
-            component={Link}
-            href="/about us"
-            color="inherit"
-            sx={{ padding: "10px" }}
-          >
-            About us
-          </Button>
-          <Button
-            component={Link}
-            href="/contact"
-            color="inherit"
-            sx={{ padding: "10px" }}
-          >
-            Contact
-          </Button>
         </Box>
+        <IconButton
+          component={Link}
+          href="favorite"
+          aria-label="favorite icon"
+          color="inherit"
+          sx={{ marginRight: "-4rem" }}
+        >
+          <FavoriteIcon />
+        </IconButton>
         <IconButton
           component={Link}
           href="/checkout"
@@ -81,21 +77,10 @@ const Subheader: React.FC = () => {
             sx={{ marginRight: "-10rem" }}
             //badgeContent={totalQuantity}
             color="secondary"
-            data-cy="cart-items-count-badge"
           >
             <AddShoppingCartOutlinedIcon />
           </Badge>
         </IconButton>
-      </Box>
-      <Box
-        sx={{
-          display: {
-            xs: "none",
-            md: "block",
-          },
-        }}
-      >
-        <CategoryCards />
       </Box>
     </main>
   );

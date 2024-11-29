@@ -26,10 +26,12 @@
     "@mui/styled-engine-sc": "^6.1.8",
     "@prisma/client": "^5.22.0",
     "@prisma/extension-accelerate": "^1.2.1",
+    "axios": "^1.7.8",
     "next": "15.0.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "styled-components": "^6.1.13"
+    "styled-components": "^6.1.13",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20.17.7",

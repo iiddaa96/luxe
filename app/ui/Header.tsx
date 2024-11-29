@@ -30,8 +30,7 @@ const Header: React.FC<HeaderProps> = ({
       position="static"
       sx={{
         backgroundColor: "#ffffff",
-        marginTop: "20px",
-        paddingBottom: "10px",
+        paddingBottom: "3px",
         boxShadow: "none",
         color: "black",
       }}
@@ -135,38 +134,11 @@ const Header: React.FC<HeaderProps> = ({
         >
           <Button
             component={Link}
-            href="/favorite"
-            color="inherit"
-            sx={{ padding: "10px" }}
-            onClick={handleCloseNavMenu}
-          >
-            Favorite
-          </Button>
-          <Button
-            component={Link}
             href="/tutorial"
             color="inherit"
             sx={{ padding: "10px" }}
           >
             Tutorial
-          </Button>
-          <Button
-            component={Link}
-            href="/about us"
-            color="inherit"
-            sx={{ padding: "10px" }}
-            onClick={handleCloseNavMenu}
-          >
-            About us
-          </Button>
-          <Button
-            component={Link}
-            href="/contact"
-            color="inherit"
-            sx={{ padding: "10px" }}
-            onClick={handleCloseNavMenu}
-          >
-            Contact
           </Button>
           <CategoryCards />
         </Box>

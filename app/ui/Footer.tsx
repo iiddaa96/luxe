@@ -2,7 +2,7 @@
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-import { Box, Typography } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 
 function Footer() {
   return (
@@ -50,6 +50,35 @@ function Footer() {
         <Typography sx={{ fontSize: "14px" }}>Cookies </Typography>
         <Typography sx={{ fontSize: "14px" }}>Privacy Policy</Typography>
         <Typography sx={{ fontSize: "14px" }}>Terms of purchase</Typography>
+        <Typography
+          component={Link}
+          href="/contact"
+          sx={{
+            display: "block",
+            color: "inherit",
+            textDecoration: "none",
+            cursor: "pointer",
+            "&:hover": {
+              textDecoration: "underline",
+            },
+          }}
+        >
+          Contact
+        </Typography>
+        <Typography
+          component={Link}
+          href="/about us"
+          sx={{
+            color: "inherit",
+            textDecoration: "none",
+            cursor: "pointer",
+            "&:hover": {
+              textDecoration: "underline",
+            },
+          }}
+        >
+          About us
+        </Typography>
       </Box>
       <Box
         sx={{
