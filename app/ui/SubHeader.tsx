@@ -32,6 +32,7 @@ const Subheader: React.FC = () => {
           <Button
             component={Link}
             href="/admin"
+            aria-label="Go to admin page"
             color="inherit"
             sx={{ padding: "10px", fontWeight: "bold" }}
           >
@@ -50,6 +51,7 @@ const Subheader: React.FC = () => {
           <Button
             component={Link}
             href="/tutorial"
+            aria-label="Go to tutorial page"
             color="inherit"
             sx={{ padding: "10px", fontWeight: "bold" }}
           >
@@ -59,7 +61,7 @@ const Subheader: React.FC = () => {
         <IconButton
           component={Link}
           href="favorite"
-          aria-label="favorite icon"
+          aria-label="Go to favorite page"
           color="inherit"
           sx={{ marginRight: "-4rem" }}
         >
@@ -69,7 +71,7 @@ const Subheader: React.FC = () => {
           component={Link}
           href="/checkout"
           size="large"
-          aria-label="show cart items"
+          aria-label="Go to checkout"
           color="inherit"
           sx={{ p: 0 }}
         >

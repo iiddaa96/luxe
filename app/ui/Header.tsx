@@ -50,7 +50,7 @@ const Header: React.FC<HeaderProps> = ({
           >
             <IconButton
               size="large"
-              aria-label="account of current user"
+              aria-label="Open navigation menu"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
@@ -97,7 +97,7 @@ const Header: React.FC<HeaderProps> = ({
               component={Link}
               href="/checkout"
               size="large"
-              aria-label="show cart items"
+              aria-label="View shopping cart"
               color="inherit"
               sx={{ p: 0 }}
             >
@@ -135,6 +135,7 @@ const Header: React.FC<HeaderProps> = ({
           <Button
             component={Link}
             href="/tutorial"
+            aria-label="View tutorial page"
             color="inherit"
             sx={{ padding: "10px" }}
           >
