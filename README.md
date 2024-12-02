@@ -5,16 +5,16 @@ Coming soon
 
 
 #### Technologies
-- Next.js
-- React
-- TypeScript
-- MUI
-- NanoId
-- Zod
-- React-hook-form
-- Prisma
-- SQL
-- Neon
+- **Next.js**
+- **React**
+- **TypeScript**
+- **MUI**
+- **NanoId**
+- **Zod**
+- **React-hook-form**
+- **Prisma**
+- **SQL**
+- **Neon**
 
 - **Backend**:
   - **Prisma ORM**: To manage the database and perform queries in a type-safe manner.
