@@ -1,9 +1,20 @@
+"use client";
+
 import AddIcon from "@mui/icons-material/Add";
 import { Box } from "@mui/material";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import ProductGrid, { ProductGridProps } from "../../ui/ProductGrid";
 
 function AdminClient({ products }: ProductGridProps) {
+  const router = useRouter();
+
+  useEffect(() => {
+    setTimeout(() => {
+      router.refresh();
+    }, 100);
+  }, [router]);
   return (
     <section>
       <Box
@@ -16,7 +27,7 @@ function AdminClient({ products }: ProductGridProps) {
           marginRight: "30px",
         }}
       >
-        {/* <Add new product /> */}
+        {/* Lägger till produkt /> */}
         <Link href="/admin/product/new">
           <AddIcon
             sx={{

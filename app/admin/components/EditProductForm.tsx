@@ -7,46 +7,63 @@ import SaveIcon from "@mui/icons-material/Save";
 import {
   Box,
   Button,
+  FormControl,
+  InputLabel,
   MenuItem,
   Select,
   SelectChangeEvent,
   TextField,
 } from "@mui/material";
 import { Prisma, Product } from "@prisma/client";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 export interface Props {
-  categories: Prisma.CategoryGetPayload<{}>[];
-  product: Product;
+  categories: Prisma.CategoryGetPayload<{}>[]; // Alla kategorier
+  product: Product & { categories: { id: number; name: string }[] }; // Produkt med sina kategorier
 }
 
-export type ProductWithCategories = Product & { categories: string[] };
-
 export default function EditProductForm({ categories, product }: Props) {
-  const { id } = useParams();
   const router = useRouter();
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const form = useForm<ProductWithCategories>({
+
+  // Initialisera valda kategorier från produktens kategorier
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(
+    product.categories.map((c) => c.id.toString())
+  );
+
+  const form = useForm<Product>({
     mode: "onChange",
     resolver: zodResolver(productSchema),
+    defaultValues: {
+      ...product,
+    },
   });
+
   const handleCategoryChange = (event: SelectChangeEvent<string[]>) => {
     setSelectedCategories(event.target.value as string[]);
   };
 
-  function handleSubmit() {
-    deleteProduct(Number(id));
-    console.log(id);
-    router.push("/admin");
-  }
-  const save = (data: ProductWithCategories) => {
-    const { categories, ...updatedProduct } = data;
-    const chosenCategories = selectedCategories.map((c) => Number(c));
+  const save = async (data: Product) => {
+    try {
+      const chosenCategories = selectedCategories.map((c) => Number(c));
+      await editProduct(data, chosenCategories, product.id);
+      router.push("/admin");
+      router.refresh();
+    } catch (error) {
+      console.error("Error saving product:", error);
+      alert("Failed to save product. Please try again.");
+    }
+  };
 
-    editProduct(updatedProduct, chosenCategories, Number(id));
-    router.push("/admin");
+  const handleDelete = async () => {
+    try {
+      await deleteProduct(product.id);
+      router.push("/admin"); // Navigera till admin-sidan
+      router.refresh(); // Ladda om sidan för att visa uppdaterade data
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
   };
 
   return (
@@ -66,84 +83,63 @@ export default function EditProductForm({ categories, product }: Props) {
     >
       <TextField
         fullWidth
-        label={product.title}
-        helperText={form.formState.errors.title?.message}
-        error={Boolean(form.formState.errors.title)}
-        id="demo-helper-text-aligned-no-helper"
-        sx={{ width: "100%", marginBottom: "20px" }}
+        label="Title"
+        defaultValue={product.title}
         {...form.register("title")}
+        sx={{ width: "100%", marginBottom: "20px" }}
       />
 
       <TextField
         fullWidth
-        label={product.image}
-        helperText={form.formState.errors.image?.message}
-        error={Boolean(form.formState.errors.image)}
-        id="demo-helper-text-aligned-no-helper"
-        sx={{ width: "100%", marginBottom: "20px" }}
+        label="Image URL"
+        defaultValue={product.image}
         {...form.register("image")}
+        sx={{ width: "100%", marginBottom: "20px" }}
       />
 
       <TextField
         fullWidth
-        label={product.price.toString()}
-        helperText={form.formState.errors.price?.message}
-        error={Boolean(form.formState.errors.price)}
-        id="demo-helper-text-aligned-no-helper"
-        sx={{ width: "100%", marginBottom: "20px" }}
+        label="Price"
+        defaultValue={product.price.toString()}
         {...form.register("price")}
+        sx={{ marginBottom: "20px" }}
       />
 
-      <Select
-        fullWidth
-        multiple
-        value={selectedCategories}
-        label="kategorier"
-        placeholder="Välj en kategori"
-        {...form.register("categories")}
-        sx={{ width: "100%", marginBottom: "20px" }}
-        onChange={handleCategoryChange}
-      >
-        {categories.map((c) => (
-          <MenuItem key={c.id} value={c.id.toString()}>
-            {c.name}
-          </MenuItem>
-        ))}
-      </Select>
+      <FormControl fullWidth sx={{ marginBottom: "20px" }}>
+        <InputLabel id="categories-label">Categories</InputLabel>
+        <Select
+          labelId="categories-label"
+          multiple
+          value={selectedCategories}
+          label="Categories"
+          placeholder="Choose a category"
+          onChange={handleCategoryChange}
+          onClose={() => setSelectedCategories(selectedCategories)}
+        >
+          {categories.map((c) => (
+            <MenuItem key={c.id} value={c.id.toString()}>
+              {c.name}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
 
       <TextField
-        id="outlined-multiline-static"
-        label={product.content}
-        helperText={form.formState.errors.content?.message}
-        error={Boolean(form.formState.errors.content)}
+        fullWidth
+        label="Content"
+        multiline
         rows={6}
-        variant="outlined"
-        sx={{ width: "100%", marginBottom: "20px" }}
+        defaultValue={product.content}
         {...form.register("content")}
+        sx={{ width: "100%", marginBottom: "40px", height: "150px" }}
       />
-
-      <Box sx={{ display: "flex", gap: "5vh" }}>
-        <Button
-          type="submit"
-          variant="contained"
-          sx={{ width: "150px" }}
-          /*  Knappen är grå om formuläret inte 
-          är godkänt*/
-        >
-          <SaveIcon fontSize="large" />
+      <Box sx={{ display: "flex", gap: "10px" }}>
+        <Button type="submit" variant="contained">
+          <SaveIcon />
           Save
         </Button>
-
-        <Button
-          sx={{
-            color: "red",
-            border: "1px red solid",
-            width: "150px",
-            cursor: "pointer",
-          }}
-          onClick={() => handleSubmit()}
-        >
-          <DeleteIcon fontSize="large" />
+        <Button variant="outlined" color="error" onClick={handleDelete}>
+          <DeleteIcon />
           Delete
         </Button>
       </Box>

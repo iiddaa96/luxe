@@ -4,7 +4,12 @@ import { Product } from "@prisma/client";
 
 export async function getAllProducts() {
   try {
-    return await db.product.findMany();
+    // Lägg till en where-klasul för att hämta produkter som inte är arkiverade
+    return await db.product.findMany({
+      where: {
+        isArchived: false, // Filtrera bort arkiverade produkter
+      },
+    });
   } catch (error) {
     console.error("Failed to retrieve all products");
     throw new Error("Failed to retrieve all products");
@@ -64,14 +69,11 @@ export async function addNewProduct(
 
 export async function deleteProduct(id: number) {
   try {
-    await db.product.update({
+    await db.product.delete({
       where: { id: id },
-      data: {
-        isArchived: true,
-      },
     });
   } catch (error) {
-    console.error("Failed to delete product");
+    console.error("Failed to delete product", error);
     throw new Error("Failed to delete product");
   }
 }

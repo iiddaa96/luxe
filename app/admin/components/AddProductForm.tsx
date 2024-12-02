@@ -6,6 +6,8 @@ import SaveIcon from "@mui/icons-material/Save";
 import {
   Box,
   Button,
+  FormControl,
+  InputLabel,
   MenuItem,
   Select,
   SelectChangeEvent,
@@ -29,8 +31,14 @@ export default function AddProductForm({ categories }: Props) {
     mode: "onChange",
     resolver: zodResolver(productSchema),
   });
+
   const handleCategoryChange = (event: SelectChangeEvent<string[]>) => {
     setSelectedCategories(event.target.value as string[]);
+  };
+
+  // Stänger dropdown när en kategori har valts
+  const handleClose = () => {
+    // Här kan vi också lägga till logik om vi vill hantera något när dropdownen stängs
   };
 
   const save = (data: ProductWithCategories) => {
@@ -39,6 +47,9 @@ export default function AddProductForm({ categories }: Props) {
 
     addNewProduct(newProduct, chosenCategories);
     router.push("/admin");
+    setTimeout(() => {
+      router.refresh();
+    }, 100);
 
     if (!addNewProduct) {
       console.log("Error");
@@ -67,6 +78,7 @@ export default function AddProductForm({ categories }: Props) {
         id="demo-helper-text-aligned-no-helper"
         sx={{ width: "100%", marginBottom: "20px" }}
         {...form.register("title")}
+        aria-describedby="title-error"
       />
 
       <TextField
@@ -89,42 +101,44 @@ export default function AddProductForm({ categories }: Props) {
         {...form.register("price")}
       />
 
-      {/* Textfält för kategorierna */}
-
-      <Select
-        fullWidth
-        multiple
-        value={selectedCategories}
-        label="Categories"
-        placeholder="Choose a category"
-        {...form.register("categories")}
-        sx={{
-          width: "100%",
-          marginBottom: "20px",
-          color: "black",
-        }}
-        onChange={handleCategoryChange}
-      >
-        {categories.map((c) => (
-          <MenuItem key={c.id} value={c.id.toString()}>
-            {c.name}
-          </MenuItem>
-        ))}
-      </Select>
+      <FormControl fullWidth sx={{ marginBottom: "20px" }}>
+        <InputLabel id="categories-label">Categories</InputLabel>
+        <Select
+          labelId="categories-label"
+          multiple
+          value={selectedCategories}
+          label="Categories"
+          placeholder="Choose a category"
+          onChange={handleCategoryChange}
+          onClose={handleClose}
+        >
+          {categories.map((c) => (
+            <MenuItem key={c.id} value={c.id.toString()}>
+              {c.name}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
 
       <TextField
         id="outlined-multiline-static"
         label="Content"
         helperText={form.formState.errors.content?.message}
         error={Boolean(form.formState.errors.content)}
+        multiline
         rows={6}
         variant="outlined"
-        sx={{ width: "100%", marginBottom: "20px" }}
+        sx={{ width: "100%", marginBottom: "40px", height: "150px" }}
         {...form.register("content")}
       />
 
       <Box sx={{ display: "flex", gap: "5vh" }}>
-        <Button type="submit" variant="contained" sx={{ width: "150px" }}>
+        <Button
+          aria-label="Save product"
+          type="submit"
+          variant="contained"
+          sx={{ width: "150px" }}
+        >
           <SaveIcon fontSize="large" />
           Save
         </Button>
