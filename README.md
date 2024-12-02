@@ -1,10 +1,10 @@
 # LUXE
 
-#### Description
+### Description
 Coming soon
 
 
-#### Technologies
+### Technologies
 - **Next.js**
 - **React**
 - **TypeScript**
@@ -20,7 +20,7 @@ Coming soon
   - **Prisma ORM**: To manage the database and perform queries in a type-safe manner.
   - **PostgreSQL**: Database to store products, categories, and user data.
 
-#### Installation
+### Installation
 - `npm install`
 - `npm run dev`
 - `npm run studio`
