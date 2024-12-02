@@ -54,7 +54,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
           marginBottom: "20px",
         }}
       >
-        ADMIN PAGE
+        ADMIN
       </Typography>
       <Box>
         <Grid container spacing={4}>
@@ -70,7 +70,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
                       }}
                       width="100%"
                       image={product.image}
-                      alt={product.alt}
+                      alt={product.title}
                     />
                     <CardContent>
                       <Typography
@@ -114,13 +114,13 @@ export default function ProductGrid({ products }: ProductGridProps) {
       </Box>
       <Dialog open={dialogOpen} onClose={handleDialogClose}>
         <DialogTitle>
-          {"Are you sure you want to delete this product?"}
+          {"Är du säker på att du vill radera denna produkt?"}
         </DialogTitle>
         <DialogContent>
-          <DialogContentText>This action cannot be undone.</DialogContentText>
+          <DialogContentText>Denna åtgärd kan inte ångras.</DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleDialogClose}>Cancel</Button>
+          <Button onClick={handleDialogClose}>Avbryt</Button>
         </DialogActions>
       </Dialog>
     </Container>

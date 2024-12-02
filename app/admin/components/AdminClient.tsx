@@ -1,7 +1,7 @@
 import AddIcon from "@mui/icons-material/Add";
 import { Box } from "@mui/material";
 import Link from "next/link";
-import ProductGrid, { ProductGridProps } from "../components/ProductGrid";
+import ProductGrid, { ProductGridProps } from "../../ui/ProductGrid";
 
 function AdminClient({ products }: ProductGridProps) {
   return (
