@@ -49,15 +49,15 @@ export default async function Home() {
         >
           <Image
             src={Smink}
-            alt="Smink bakgrund"
-            aria-label="Smink bakgrund"
+            alt="Makeup background"
+            aria-label="Makeup background"
             fill
             style={{ objectFit: "cover" }}
             priority
           />
           <Typography
+            aria-label="Company name"
             variant="h3"
-            component="div"
             sx={{
               position: "absolute",
               color: "white",
@@ -74,7 +74,6 @@ export default async function Home() {
           </Typography>
           <Typography
             variant="h3"
-            component="div"
             sx={{
               position: "absolute",
               color: "white",
@@ -116,7 +115,7 @@ export default async function Home() {
             component="img"
             image="https://caiacosmetics.se/dokument/bibliotek/Image/CAIA_HP_MID_BANNER_DESKTOP_RADIANT_TOUCH_LAUNCH_GIF_OCT_24.webp"
             alt="LastImage"
-            aria-label="Girl with makeup"
+            aria-label="Girls with makeup"
           />
         </div>
       </Box>
