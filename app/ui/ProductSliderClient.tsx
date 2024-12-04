@@ -21,9 +21,6 @@ interface ProductSliderClientProps {
     alt: string;
     price: number;
     content: string;
-    category: {
-      name: string;
-    };
   }[];
 }
 

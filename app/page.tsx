@@ -15,7 +15,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import Smink from "./assets/smink4.jpg";
-import ProductSlider from "./ui/CategorySlider";
+import ProductSlider from "./ui/ProductSlider";
 
 export default async function Home() {
   const products = await db.product.findMany({

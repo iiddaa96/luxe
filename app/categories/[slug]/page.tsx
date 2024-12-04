@@ -56,6 +56,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                       boxShadow: 3,
                       position: "relative",
                       marginBottom: "24px",
+                      marginTop: "24px",
                     }}
                   >
                     <CardMedia

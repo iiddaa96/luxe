@@ -14,7 +14,7 @@ function Tutorial() {
   };
 
   return (
-    <main style={{ backgroundColor: "rgba(255, 215, 215, 0.73)" }}>
+    <main style={{ backgroundColor: "rgba(253, 226, 226, 0.73)" }}>
       <Box
         sx={{
           textAlign: "center",

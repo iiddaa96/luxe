@@ -29,7 +29,7 @@ export default function SingleProduct({ product }: Props) {
               flexGrow: 1,
               marginLeft: "5.3rem",
               marginBottom: { xs: "-4rem", sm: "-4rem", md: "4rem" },
-              marginTop: "10px",
+              marginTop: "20px",
             }}
           >
             <div key={product.id}>
