@@ -18,7 +18,7 @@ Coming soon
 - **Neon**
 
 - **Backend**:
-  - **Prisma ORM**: To manage the database and perform queries in a type-safe manner.
+  - **Prisma ORM**
   - **PostgreSQL**: Database to store products, categories, and user data.
 
 ### Installation
