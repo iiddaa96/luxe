@@ -1,6 +1,8 @@
+// import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { ReactNode } from "react";
-import Footer from "./ui/Footer";
-import ResponsiveAppBar from "./ui/ResponsiveAppBar";
+import { CartProvider } from "./context/CheckoutContext";
+import Footer from "./ui/Navigation/Footer";
+import ResponsiveAppBar from "./ui/Navigation/ResponsiveAppBar";
 
 interface LayoutProps {
   children: ReactNode;
@@ -9,10 +11,20 @@ interface LayoutProps {
 export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
-      <body style={{ margin: "0" }}>
-        <ResponsiveAppBar />
-        {children}
-        <Footer />
+      <body>
+        <CartProvider>
+          {/* <AppRouterCacheProvider> */}
+          <ResponsiveAppBar />
+          <main
+            style={{
+              paddingTop: "140px",
+            }}
+          >
+            {children}
+          </main>
+          <Footer />
+          {/* </AppRouterCacheProvider> */}
+        </CartProvider>
       </body>
     </html>
   );

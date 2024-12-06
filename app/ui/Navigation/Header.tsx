@@ -1,8 +1,6 @@
-import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 import {
   AppBar,
-  Badge,
   Box,
   Button,
   IconButton,
@@ -12,7 +10,8 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import React from "react";
-import CategoryCards from "./CategoryCards";
+import CategoryCards from "../CategoryCards";
+import CheckoutButton from "../CheckoutButton";
 
 interface HeaderProps {
   handleOpenNavMenu: (event: React.MouseEvent<HTMLElement>) => void;
@@ -93,22 +92,7 @@ const Header: React.FC<HeaderProps> = ({
           <Box
             sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
           >
-            <IconButton
-              component={Link}
-              href="/checkout"
-              size="large"
-              aria-label="View shopping cart"
-              color="inherit"
-              sx={{ p: 0 }}
-            >
-              <Badge
-                sx={{ marginRight: "5px" }}
-                // badgeContent={totalQuantity}
-                color="secondary"
-              >
-                <AddShoppingCartOutlinedIcon />
-              </Badge>
-            </IconButton>
+            <CheckoutButton />
           </Box>
         </Box>
       </Toolbar>

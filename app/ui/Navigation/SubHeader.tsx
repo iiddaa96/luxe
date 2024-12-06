@@ -1,11 +1,11 @@
 "use client";
-import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { Badge, IconButton } from "@mui/material";
+import { IconButton } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Link from "next/link";
-import CategoryCards from "./CategoryCards";
+import CategoryCards from "../CategoryCards";
+import CheckoutButton from "../CheckoutButton";
 
 const Subheader: React.FC = () => {
   return (
@@ -67,22 +67,7 @@ const Subheader: React.FC = () => {
         >
           <FavoriteIcon />
         </IconButton>
-        <IconButton
-          component={Link}
-          href="/checkout"
-          size="large"
-          aria-label="Go to checkout"
-          color="inherit"
-          sx={{ p: 0 }}
-        >
-          <Badge
-            sx={{ marginRight: "-10rem" }}
-            //badgeContent={totalQuantity}
-            color="secondary"
-          >
-            <AddShoppingCartOutlinedIcon />
-          </Badge>
-        </IconButton>
+        <CheckoutButton />
       </Box>
     </main>
   );
