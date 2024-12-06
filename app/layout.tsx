@@ -17,7 +17,7 @@ export default function RootLayout({ children }: LayoutProps) {
           <ResponsiveAppBar />
           <main
             style={{
-              paddingTop: "140px",
+              paddingTop: "10px",
             }}
           >
             {children}
