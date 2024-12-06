@@ -11,6 +11,7 @@ Coming soon
 - **MUI**
 - **NanoId**
 - **Zod**
+- **LocalStorage**
 - **React-hook-form**
 - **Prisma**
 - **SQL**
