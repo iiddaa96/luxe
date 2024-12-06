@@ -1,5 +1,6 @@
-function Checkout() {
-  return <h1 style={{ padding: "4rem" }}>Checkout</h1>;
-}
+import Checkout from "./Checkout";
+const CheckoutPage = () => {
+  return <Checkout />;
+};
 
-export default Checkout;
+export default CheckoutPage;
