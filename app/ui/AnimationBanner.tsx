@@ -5,12 +5,12 @@ import React from "react";
 
 // Animation för att tona in och flytta texten
 const fadeInMove = keyframes`
-  0% { opacity: 0; transform: translateY(20px); }
+  0% { opacity: 0; transform: translateY(25px); }
   100% { opacity: 1; transform: translateY(0); }
 `;
 
 const fadeInSlogan = keyframes`
-  0% { opacity: 0; transform: translateY(10px); }
+  0% { opacity: 0; transform: translateY(25px); }
   100% { opacity: 1; transform: translateY(0); }
 `;
 
