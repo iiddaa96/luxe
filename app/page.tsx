@@ -14,7 +14,8 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import Smink from "./assets/smink4.jpg";
+import middleImage from "./assets/middleImage.webp";
+import AnimationBanner from "./ui/AnimationBanner";
 import ProductSlider from "./ui/Slider/ProductSlider";
 
 export default async function Home() {
@@ -23,6 +24,7 @@ export default async function Home() {
   });
 
   const cardStyle = { width: 280, height: 310 };
+
   return (
     <main>
       <Box
@@ -39,57 +41,9 @@ export default async function Home() {
           },
         }}
       >
-        <div
-          style={{
-            width: "99%",
-            height: "60vh",
-            overflow: "hidden",
-            position: "relative",
-          }}
-        >
-          <Image
-            src={Smink}
-            alt="Makeup background"
-            aria-label="Makeup background"
-            fill
-            style={{ objectFit: "cover" }}
-            priority
-          />
-          <Typography
-            aria-label="Company name"
-            variant="h3"
-            sx={{
-              position: "absolute",
-              color: "white",
-              textShadow: "1px 1px 2px #000000",
-              textAlign: "left",
-              width: "auto",
-              top: "55%",
-              left: "60px",
-              transform: "translateY(-50%)",
-              fontWeight: "bold",
-            }}
-          >
-            L U X E
-          </Typography>
-          <Typography
-            variant="h3"
-            sx={{
-              position: "absolute",
-              color: "white",
-              textShadow: "1px 1px 2px #000000",
-              textAlign: "right",
-              width: "auto",
-              top: "73%",
-              right: "50px",
-              transform: "translateY(-50%)",
-            }}
-          >
-            Where makeup lasts all day
-          </Typography>
-        </div>
+        <AnimationBanner />
       </Box>
-      {/* produkt slider här */}
+      {/* Produkt slider här */}
       <ProductSlider />
       <Box
         sx={{
@@ -105,17 +59,20 @@ export default async function Home() {
         <div
           style={{
             width: "99%",
-            height: "60vh",
+            height: "65vh",
             overflow: "hidden",
             position: "relative",
             marginBottom: "2rem",
           }}
         >
-          <CardMedia
-            component="img"
-            image="https://caiacosmetics.se/dokument/bibliotek/Image/CAIA_HP_MID_BANNER_DESKTOP_RADIANT_TOUCH_LAUNCH_GIF_OCT_24.webp"
-            alt="LastImage"
-            aria-label="Girls with makeup"
+          <Image
+            src={middleImage}
+            alt="Middle image of products"
+            fill
+            style={{
+              objectFit: "cover",
+              objectPosition: "center",
+            }}
           />
         </div>
       </Box>
