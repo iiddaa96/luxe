@@ -14,7 +14,7 @@ const fadeInSlogan = keyframes`
   100% { opacity: 1; transform: translateY(0); }
 `;
 
-const AnimationTextHeader: React.FC = () => {
+const AnimationBanner: React.FC = () => {
   return (
     <Box
       sx={{
@@ -28,7 +28,6 @@ const AnimationTextHeader: React.FC = () => {
         textAlign: "center",
       }}
     >
-      {/* LUXE - Huvudrubrik */}
       <Typography
         aria-label="Company name"
         variant="h1"
@@ -43,7 +42,6 @@ const AnimationTextHeader: React.FC = () => {
         L U X E
       </Typography>
 
-      {/* Slagord */}
       <Typography
         aria-label="Company tagline"
         variant="h5"
@@ -62,4 +60,4 @@ const AnimationTextHeader: React.FC = () => {
   );
 };
 
-export default AnimationTextHeader;
+export default AnimationBanner;

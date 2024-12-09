@@ -15,7 +15,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import middleImage from "./assets/middleImage.webp";
-import AnimationTextHeader from "./ui/AnimationTextHeader";
+import AnimationBanner from "./ui/AnimationBanner";
 import ProductSlider from "./ui/Slider/ProductSlider";
 
 export default async function Home() {
@@ -41,9 +41,9 @@ export default async function Home() {
           },
         }}
       >
-        <AnimationTextHeader />
+        <AnimationBanner />
       </Box>
-      {/* produkt slider här */}
+      {/* Produkt slider här */}
       <ProductSlider />
       <Box
         sx={{
@@ -67,10 +67,12 @@ export default async function Home() {
         >
           <Image
             src={middleImage}
-            alt="Middle Image"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
+            alt="Middle image of products"
+            fill
+            style={{
+              objectFit: "cover",
+              objectPosition: "center",
+            }}
           />
         </div>
       </Box>
