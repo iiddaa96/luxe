@@ -59,7 +59,7 @@ function Tutorial() {
               <CardMedia
                 component="img"
                 height="200"
-                image="https://bethbenderbeauty.com/cdn/shop/articles/38890936_s_923a7fa5-65d1-4c3d-b960-52cf377c2a90.jpg?v=1646253403"
+                image="https://images.unsplash.com/photo-1551392505-f4056032826e?q=80&w=1893&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Girl with eyeshadow"
                 aria-label="Girl with eyeshadow"
               />
