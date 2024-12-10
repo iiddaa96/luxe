@@ -36,7 +36,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   if (!category) {
     return (
       <div>
-        <h1>Kategori hittades inte</h1>
+        <h1>Categories not found</h1>
       </div>
     );
   }
@@ -75,11 +75,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                         }}
                       >
                         <Box>
-                          <Typography
-                            gutterBottom
-                            variant="subtitle1"
-                            component="div"
-                          >
+                          <Typography gutterBottom variant="h1" component="div">
                             {product.title}
                           </Typography>
                           <Typography

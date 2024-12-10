@@ -7,6 +7,11 @@ import SaveIcon from "@mui/icons-material/Save";
 import {
   Box,
   Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
   FormControl,
   InputLabel,
   MenuItem,
@@ -31,6 +36,8 @@ export default function EditProductForm({ categories, product }: Props) {
   const [selectedCategories, setSelectedCategories] = useState<string[]>(
     product.categories.map((c) => c.id.toString())
   );
+
+  const [openDialog, setOpenDialog] = useState(false);
 
   const form = useForm<Product>({
     mode: "onChange",
@@ -59,8 +66,9 @@ export default function EditProductForm({ categories, product }: Props) {
   const handleDelete = async () => {
     try {
       await deleteProduct(product.id);
+      setOpenDialog(false);
       router.push("/admin"); // Navigera till admin-sidan
-      router.refresh(); // Ladda om sidan för att visa uppdaterade data
+      router.refresh();
     } catch (error) {
       console.error("Error deleting product:", error);
     }
@@ -69,6 +77,7 @@ export default function EditProductForm({ categories, product }: Props) {
   return (
     <Box
       component="form"
+      aria-labelledby="edit-product-form"
       onSubmit={form.handleSubmit(save)}
       sx={{
         borderRadius: "10px",
@@ -83,6 +92,7 @@ export default function EditProductForm({ categories, product }: Props) {
     >
       <TextField
         fullWidth
+        aria-labelledby="title-label"
         label="Title"
         defaultValue={product.title}
         {...form.register("title")}
@@ -91,6 +101,7 @@ export default function EditProductForm({ categories, product }: Props) {
 
       <TextField
         fullWidth
+        aria-labelledby="image-url"
         label="Image URL"
         defaultValue={product.image}
         {...form.register("image")}
@@ -99,6 +110,7 @@ export default function EditProductForm({ categories, product }: Props) {
 
       <TextField
         fullWidth
+        aria-labelledby="price-label"
         label="Price"
         defaultValue={product.price.toString()}
         {...form.register("price")}
@@ -106,12 +118,12 @@ export default function EditProductForm({ categories, product }: Props) {
       />
 
       <FormControl fullWidth sx={{ marginBottom: "20px" }}>
-        <InputLabel id="categories-label">Categories</InputLabel>
+        <InputLabel aria-label="Categories-label">Categories</InputLabel>
         <Select
-          labelId="categories-label"
+          aria-label="Categories alternative"
+          label="Categories"
           multiple
           value={selectedCategories}
-          label="Categories"
           placeholder="Choose a category"
           onChange={handleCategoryChange}
           onClose={() => setSelectedCategories(selectedCategories)}
@@ -126,6 +138,7 @@ export default function EditProductForm({ categories, product }: Props) {
 
       <TextField
         fullWidth
+        aria-label="Product content"
         label="Content"
         multiline
         rows={6}
@@ -134,15 +147,96 @@ export default function EditProductForm({ categories, product }: Props) {
         sx={{ width: "100%", marginBottom: "40px", height: "150px" }}
       />
       <Box sx={{ display: "flex", gap: "10px" }}>
-        <Button type="submit" variant="contained">
+        <Button aria-label="save button" type="submit" variant="contained">
           <SaveIcon />
           Save
         </Button>
-        <Button variant="outlined" color="error" onClick={handleDelete}>
+        <Button
+          aria-label="delete button"
+          variant="outlined"
+          color="error"
+          onClick={() => setOpenDialog(true)} // Öppna dialogen rutan
+        >
           <DeleteIcon />
           Delete
         </Button>
       </Box>
+
+      <Dialog
+        open={openDialog}
+        onClose={() => setOpenDialog(false)}
+        aria-labelledby="delete-confirmation-dialog"
+        aria-describedby="delete-confirmation-description"
+        sx={{
+          "& .MuiDialog-paper": {
+            borderRadius: "12px",
+            padding: "20px",
+            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+            backgroundColor: "#fefefe",
+          },
+        }}
+      >
+        <DialogTitle
+          id="delete-confirmation-dialog"
+          sx={{
+            fontSize: "1.5rem",
+            fontWeight: "bold",
+            color: "#333",
+          }}
+        >
+          Confirm delete
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText
+            id="delete-confirmation-description"
+            sx={{
+              fontSize: "1rem",
+              color: "#555",
+              marginBottom: "20px",
+            }}
+          >
+            Are you sure you want to delete this product? This action cannot be
+            undone.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions
+          sx={{
+            display: "flex",
+            gap: "10px",
+            padding: "10px 20px",
+          }}
+        >
+          <Button
+            onClick={() => setOpenDialog(false)}
+            color="primary"
+            variant="outlined"
+            sx={{
+              borderColor: "#1976d2",
+              color: "#1976d2",
+              "&:hover": {
+                backgroundColor: "rgba(25, 118, 210, 0.1)",
+              },
+            }}
+          >
+            Cancel
+          </Button>
+          <Button
+            onClick={handleDelete}
+            color="error"
+            variant="contained"
+            autoFocus
+            sx={{
+              backgroundColor: "#d32f2f",
+              color: "white",
+              "&:hover": {
+                backgroundColor: "#b71c1c",
+              },
+            }}
+          >
+            Delete
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 }

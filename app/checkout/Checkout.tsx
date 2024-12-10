@@ -19,6 +19,7 @@ const Checkout = () => {
     >
       {/* <BackButton /> */}
       <Typography
+        variant="h1"
         sx={{
           display: "flex",
           justifyContent: "center",

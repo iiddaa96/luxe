@@ -50,7 +50,14 @@ export default function SingleProduct({ product }: Props) {
         </Grid>
         <Grid item xs={12} sm={6}>
           <Box sx={{ flexGrow: 1, padding: "70px 10px" }}>
-            <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold" }}>
+            <Typography
+              variant="h1"
+              gutterBottom
+              sx={{
+                fontWeight: "bold",
+                fontSize: { md: "2rem", xs: "1.3rem" },
+              }}
+            >
               {product.title}
             </Typography>
             <Typography

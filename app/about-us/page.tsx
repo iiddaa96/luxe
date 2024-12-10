@@ -47,7 +47,7 @@ function AboutUs() {
               fontWeight: "bold",
               fontSize: { xs: "20px", sm: "24px" },
             }}
-            variant="h5"
+            variant="h1"
             component="h2"
             gutterBottom
           >
