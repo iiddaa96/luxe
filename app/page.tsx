@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import middleImage from "./assets/middleImage.webp";
+import middleImage from "./assets/middleImage2.png";
 import AnimationBanner from "./ui/AnimationBanner";
 import ProductSlider from "./ui/Slider/ProductSlider";
 
@@ -74,6 +74,49 @@ export default async function Home() {
               objectPosition: "center",
             }}
           />
+          <Box
+            sx={{
+              position: "absolute",
+              top: 68,
+              left: "50%",
+              transform: "translateX(-50%)",
+              bottom: 68,
+              backgroundColor: "#792F41",
+              width: "28%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              textAlign: "center",
+              padding: "20px",
+              color: "white",
+              "@media (max-width: 400px)": {
+                width: "100%",
+                top: "20%",
+                padding: "8px",
+              },
+            }}
+          >
+            <Box>
+              <Typography
+                variant="h2"
+                sx={{
+                  fontWeight: 700,
+                  marginBottom: "1rem",
+                  "@media (max-width: 400px)": { fontSize: "3rem" },
+                }}
+              >
+                THE GLOW UP FORMULA
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  fontWeight: 400,
+                }}
+              >
+                DISCOVER OUR HANDPICKED BEAUTY SELECTION
+              </Typography>
+            </Box>
+          </Box>
         </div>
       </Box>
       {/* Mappar ut produkt */}
