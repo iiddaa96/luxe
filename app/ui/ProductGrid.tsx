@@ -2,17 +2,11 @@
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import {
   Box,
-  Button,
   Card,
   CardActionArea,
   CardContent,
   CardMedia,
   Container,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
   Grid,
   Typography,
   styled,
@@ -118,24 +112,6 @@ export default function ProductGrid({ products }: ProductGridProps) {
           })}
         </Grid>
       </Box>
-      <Dialog
-        aria-labelledby="dialog-title"
-        aria-describedby="dialog-description"
-        open={dialogOpen}
-        onClose={handleDialogClose}
-      >
-        <DialogTitle id="dialog-title">
-          {"Are you sure you want to delete this product?"}
-        </DialogTitle>
-        <DialogContent id="dialog-description">
-          <DialogContentText>Denna åtgärd kan inte ångras.</DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button aria-label="Cancel button" onClick={handleDialogClose}>
-            Avbryt
-          </Button>
-        </DialogActions>
-      </Dialog>
     </Container>
   );
 }
