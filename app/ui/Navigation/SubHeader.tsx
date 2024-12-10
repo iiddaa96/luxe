@@ -16,7 +16,11 @@ const Subheader: React.FC = () => {
           justifyContent: "center",
           alignItems: "center",
           padding: "10px",
-          borderBottom: "1px solid black",
+          // borderBottom: "1px solid black",
+          backgroundColor: "#FCF5F3",
+          // position: "sticky",
+          // top: 0,
+          // zIndex: 999,
         }}
       >
         <Box

@@ -24,7 +24,6 @@ const ResponsiveAppBar: React.FC = () => {
         anchorElNav={anchorElNav}
         handleCloseNavMenu={handleCloseNavMenu}
       />
-
       <Subheader />
     </div>
   );

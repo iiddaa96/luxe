@@ -28,7 +28,7 @@ const Header: React.FC<HeaderProps> = ({
     <AppBar
       position="static"
       sx={{
-        backgroundColor: "#ffffff",
+        backgroundColor: "#FCF5F3",
         paddingBottom: "3px",
         boxShadow: "none",
         color: "black",
@@ -43,7 +43,7 @@ const Header: React.FC<HeaderProps> = ({
             justifyContent: "space-between",
           }}
         >
-          {/* Hamburger menu (visible only on mobile) */}
+          {/* Hambugare meny (synlig bara på mobil) */}
           <Box
             sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
           >
@@ -59,7 +59,7 @@ const Header: React.FC<HeaderProps> = ({
             </IconButton>
           </Box>
 
-          {/* Logo (centered on mobile, and positioned correctly on desktop) */}
+          {/* Loggan (centrerad på mobil) */}
           <Box
             component={Link}
             href="/"
@@ -88,7 +88,7 @@ const Header: React.FC<HeaderProps> = ({
             </Typography>
           </Box>
 
-          {/* Cart Icon (visible only on mobile beside loggan) */}
+          {/* Varukorg ikon (synlig bara på mobil) */}
           <Box
             sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
           >

@@ -9,42 +9,43 @@ function Footer() {
     <Box
       component="footer"
       sx={{
+        fontFamily: "Roboto, sans-serif",
         borderTop: "1px solid black",
-        justifyContent: "space-around",
         display: "flex",
-        alignItems: "center",
-        padding: "10px 0",
+        justifyContent: "center",
+        gap: "10rem",
+        padding: "20px",
         marginTop: "20px",
         backgroundColor: "white",
-        flexDirection: "row", // För desktop-läge
+        flexWrap: "wrap",
         "@media (max-width: 600px)": {
-          flexDirection: "column", // För mobilläge
-          padding: "20px",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "20px",
         },
       }}
     >
+      {/* Kontaktsektionen */}
       <Box
         sx={{
-          "@media (max-width: 600px)": {
-            paddingBottom: "15px",
-          },
+          textAlign: { xs: "center", sm: "left" },
         }}
       >
-        <Typography sx={{ fontSize: "14px", fontWeight: "bold" }}>
+        <Typography sx={{ fontSize: "14px", fontWeight: "bold", mb: 1 }}>
           CONTACT
         </Typography>
         <Typography sx={{ fontSize: "14px" }}>L U X E </Typography>
         <Typography sx={{ fontSize: "14px" }}>Hittepå gatan 01</Typography>
         <Typography sx={{ fontSize: "14px" }}>442 11 Göteborg</Typography>
       </Box>
+
+      {/* Informationssektionen */}
       <Box
         sx={{
-          "@media (max-width: 600px)": {
-            paddingBottom: "15px",
-          },
+          textAlign: { xs: "center", sm: "left" },
         }}
       >
-        <Typography sx={{ fontSize: "14px", fontWeight: "bold" }}>
+        <Typography sx={{ fontSize: "14px", fontWeight: "bold", mb: 1 }}>
           INFORMATION
         </Typography>
         <Typography sx={{ fontSize: "14px" }}>Cookies </Typography>
@@ -61,6 +62,7 @@ function Footer() {
             "&:hover": {
               textDecoration: "underline",
             },
+            fontSize: "14px",
           }}
         >
           Contact
@@ -75,30 +77,73 @@ function Footer() {
             "&:hover": {
               textDecoration: "underline",
             },
+            fontSize: "14px",
           }}
         >
           About us
         </Typography>
       </Box>
+
+      {/* Följ oss-sektionen */}
       <Box
         sx={{
-          "@media (max-width: 600px)": {
-            paddingBottom: "15px",
-          },
+          textAlign: { xs: "center", sm: "left" },
         }}
       >
-        <Typography sx={{ fontSize: "14px", fontWeight: "bold" }}>
+        <Typography sx={{ fontSize: "14px", fontWeight: "bold", mb: 1 }}>
           FOLLOW US
         </Typography>
-        <Typography sx={{ fontSize: "14px" }}>
-          <FacebookIcon /> Facebook
-        </Typography>
-        <Typography sx={{ fontSize: "14px" }}>
-          <InstagramIcon /> Instagram
-        </Typography>
-        <Typography sx={{ fontSize: "14px" }}>
-          <YouTubeIcon /> YouTube
-        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: { xs: "center", sm: "flex-start" },
+            gap: "8px",
+          }}
+        >
+          <Link
+            href="https://facebook.com"
+            target="_blank"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              textDecoration: "none",
+              color: "inherit",
+              "&:hover": { textDecoration: "underline" },
+            }}
+          >
+            <FacebookIcon sx={{ marginRight: "5px" }} />
+            Facebook
+          </Link>
+          <Link
+            href="https://instagram.com"
+            target="_blank"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              textDecoration: "none",
+              color: "inherit",
+              "&:hover": { textDecoration: "underline" },
+            }}
+          >
+            <InstagramIcon sx={{ marginRight: "5px" }} />
+            Instagram
+          </Link>
+          <Link
+            href="https://youtube.com"
+            target="_blank"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              textDecoration: "none",
+              color: "inherit",
+              "&:hover": { textDecoration: "underline" },
+            }}
+          >
+            <YouTubeIcon sx={{ marginRight: "5px" }} />
+            YouTube
+          </Link>
+        </Box>
       </Box>
     </Box>
   );
