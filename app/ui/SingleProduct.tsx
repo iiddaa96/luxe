@@ -7,11 +7,6 @@ type Props = {
 };
 
 export default function SingleProduct({ product }: Props) {
-  const handleUpdateQuantity = (quantity: number) => {
-    console.log(`Product ${product.id} quantity updated to: ${quantity}`);
-    // Här kan du lägga till logik för att lägga till produkten i kundvagnen
-  };
-
   return (
     <main>
       <Grid container spacing={2}>
