@@ -12,7 +12,11 @@ const Checkout = () => {
   console.log("Current cart in checkout:", cart);
 
   return (
-    <Container maxWidth="md" component="main">
+    <Container
+      maxWidth="md"
+      component="main"
+      sx={{ fontFamily: "Roboto, sans-serif" }}
+    >
       {/* <BackButton /> */}
       <Typography
         sx={{
@@ -29,7 +33,14 @@ const Checkout = () => {
       <Grid container spacing={3}>
         <CartItems cart={cart} />
       </Grid>
-      <Grid container sx={{ alignItems: "center", marginTop: "20px" }}>
+      <Grid
+        container
+        sx={{
+          // alignItems: "center",
+          marginTop: "20px",
+          fontFamily: "Roboto, sans-serif",
+        }}
+      >
         <Grid item xs={12} sm={6}>
           <Box>
             <Typography variant="h6">Total:</Typography>

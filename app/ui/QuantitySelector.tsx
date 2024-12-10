@@ -83,7 +83,7 @@ const QuantityButton: React.FC<QuantityButtonProps> = ({
         {showTotalPrice && (
           <Box>
             <Typography variant="subtitle1">
-              Pri: {calculateTotalPrice()} kr
+              {calculateTotalPrice()} kr
             </Typography>
           </Box>
         )}
