@@ -69,7 +69,7 @@ function Footer() {
         </Typography>
         <Typography
           component={Link}
-          href="/about us"
+          href="/about-us"
           sx={{
             color: "inherit",
             textDecoration: "none",
