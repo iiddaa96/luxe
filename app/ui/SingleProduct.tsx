@@ -55,14 +55,22 @@ export default function SingleProduct({ product }: Props) {
         </Grid>
         <Grid item xs={12} sm={6}>
           <Box sx={{ flexGrow: 1, padding: "70px 10px" }}>
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold" }}>
               {product.title}
             </Typography>
-            <Typography variant="body2" gutterBottom>
-              {product.content}
-            </Typography>
-            <Typography variant="body2" gutterBottom>
+            <Typography
+              variant="body2"
+              gutterBottom
+              sx={{ fontWeight: "bold" }}
+            >
               {product.price} kr
+            </Typography>
+            <Typography
+              variant="body2"
+              gutterBottom
+              sx={{ marginTop: "3rem", textWrap: "balance" }}
+            >
+              {product.content}
             </Typography>
             <AddToCartButton product={product} />
           </Box>
