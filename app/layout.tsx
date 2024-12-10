@@ -11,13 +11,30 @@ interface LayoutProps {
 export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
-      <body>
+      <body
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
+          margin: 0,
+        }}
+      >
         <CartProvider>
           {/* <AppRouterCacheProvider> */}
-          <ResponsiveAppBar />
+          <div
+            style={{
+              position: "sticky",
+              top: 0,
+              zIndex: 1000,
+              width: "100%",
+            }}
+          >
+            <ResponsiveAppBar />
+          </div>
           <main
             style={{
               paddingTop: "10px",
+              flex: "1 0 auto",
             }}
           >
             {children}
