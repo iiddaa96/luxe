@@ -2,17 +2,11 @@
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import {
   Box,
-  Button,
   Card,
   CardActionArea,
   CardContent,
   CardMedia,
   Container,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
   Grid,
   Typography,
   styled,
@@ -45,6 +39,8 @@ export default function ProductGrid({ products }: ProductGridProps) {
   return (
     <Container fixed>
       <Typography
+        variant="h1"
+        aria-label="Admin"
         sx={{
           marginTop: "-1rem",
           display: "flex",
@@ -64,6 +60,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
                 <StyledCard>
                   <CardActionArea>
                     <CardMedia
+                      aria-label="Product image"
                       component="img"
                       sx={{
                         height: { xs: 200, sm: 300 },
@@ -74,6 +71,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
                     />
                     <CardContent>
                       <Typography
+                        aria-label="Product title"
                         gutterBottom
                         variant="h6"
                         sx={{
@@ -84,6 +82,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
                         {product.title}
                       </Typography>
                       <Typography
+                        aria-label="Product price"
                         gutterBottom
                         variant="h6"
                         sx={{
@@ -94,6 +93,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
                         {`${product.price.toString()}Kr`}
                       </Typography>
                       <Box
+                        aria-label="Link to edit product"
                         sx={{
                           display: "flex",
                           justifyContent: "space-between",
@@ -112,17 +112,6 @@ export default function ProductGrid({ products }: ProductGridProps) {
           })}
         </Grid>
       </Box>
-      <Dialog open={dialogOpen} onClose={handleDialogClose}>
-        <DialogTitle>
-          {"Är du säker på att du vill radera denna produkt?"}
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText>Denna åtgärd kan inte ångras.</DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleDialogClose}>Avbryt</Button>
-        </DialogActions>
-      </Dialog>
     </Container>
   );
 }

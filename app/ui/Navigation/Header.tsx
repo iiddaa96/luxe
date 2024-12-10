@@ -63,6 +63,7 @@ const Header: React.FC<HeaderProps> = ({
           <Box
             component={Link}
             href="/"
+            aria-label="Go to homepage"
             sx={{
               display: "flex",
               justifyContent: "center",
@@ -75,6 +76,7 @@ const Header: React.FC<HeaderProps> = ({
             <Typography
               variant="h6"
               noWrap
+              aria-label="Company name luxe"
               component="div"
               sx={{
                 fontFamily: "monospace",
@@ -90,6 +92,7 @@ const Header: React.FC<HeaderProps> = ({
 
           {/* Varukorg ikon (synlig bara på mobil) */}
           <Box
+            aria-label="Checkout icon button"
             sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
           >
             <CheckoutButton />
@@ -112,6 +115,7 @@ const Header: React.FC<HeaderProps> = ({
         }}
         open={Boolean(anchorElNav)}
         onClose={handleCloseNavMenu}
+        aria-labelledby="menu-appbar"
       >
         <Box
           sx={{ display: { xs: "flex", md: "none" }, flexDirection: "column" }}

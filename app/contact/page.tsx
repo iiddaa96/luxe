@@ -35,8 +35,8 @@ function Contact() {
           }}
         >
           <Typography
-            sx={{ textAlign: "center" }}
-            variant="h5"
+            sx={{ textAlign: "center", fontSize: "24px", fontWeight: "bold" }}
+            variant="h1"
             component="h2"
             gutterBottom
           >
@@ -44,6 +44,7 @@ function Contact() {
           </Typography>
           <form>
             <TextField
+              aria-label="Name"
               fullWidth
               label="Name"
               variant="outlined"
@@ -51,6 +52,7 @@ function Contact() {
               required
             />
             <TextField
+              aria-label="Email"
               fullWidth
               label="Email"
               variant="outlined"
@@ -59,6 +61,7 @@ function Contact() {
             />
             <TextField
               fullWidth
+              aria-label="Message"
               label="Message"
               variant="outlined"
               margin="normal"
@@ -67,6 +70,7 @@ function Contact() {
               rows={4}
             />
             <Button
+              aria-label="Send button"
               type="submit"
               variant="contained"
               sx={{
