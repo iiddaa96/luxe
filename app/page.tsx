@@ -99,6 +99,7 @@ export default async function Home() {
             <Box>
               <Typography
                 variant="h2"
+                aria-label="The glow up formula"
                 sx={{
                   fontWeight: 700,
                   marginBottom: "1rem",
@@ -108,6 +109,7 @@ export default async function Home() {
                 THE GLOW UP FORMULA
               </Typography>
               <Typography
+                aria-label="Discover our handpicked beauty selection"
                 variant="body1"
                 sx={{
                   fontWeight: 400,
@@ -136,6 +138,7 @@ export default async function Home() {
                     />
                     <CardContent>
                       <Typography
+                        aria-label="Product title"
                         sx={{ fontSize: "0.9rem", fontWeight: "bold" }}
                         gutterBottom
                         variant="body1"
@@ -144,6 +147,7 @@ export default async function Home() {
                         {product.title}
                       </Typography>
                       <Typography
+                        aria-label="Product price"
                         sx={{ fontSize: "1rem", fontWeight: "medium" }}
                         variant="body2"
                         color="text.secondary"
