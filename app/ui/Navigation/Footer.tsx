@@ -10,13 +10,13 @@ function Footer() {
       component="footer"
       sx={{
         fontFamily: "Roboto, sans-serif",
-        borderTop: "1px solid black",
+        backgroundColor: "#FCF5F3",
+        // borderTop: "1px solid black",
         display: "flex",
         justifyContent: "center",
         gap: "10rem",
         padding: "20px",
         marginTop: "20px",
-        backgroundColor: "white",
         flexWrap: "wrap",
         "@media (max-width: 600px)": {
           flexDirection: "column",
