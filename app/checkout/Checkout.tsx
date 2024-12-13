@@ -44,7 +44,7 @@ const Checkout = () => {
         justifyContent="space-between"
         sx={{
           marginTop: "20px",
-          padding: { xs: "0 1rem", md: "0 2rem" }, // Inre marginal för olika skärmar
+          padding: { xs: "0 1rem", md: "0 2rem" },
         }}
       >
         <Grid item xs={6} sm={6} sx={{ textAlign: { xs: "left", md: "left" } }}>
@@ -63,6 +63,7 @@ const Checkout = () => {
             sx={{
               fontWeight: "bold",
               fontSize: { xs: "18px", md: "20px" },
+              marginRight: "1.2rem",
             }}
           >
             <TotalPrice cart={cart} />
