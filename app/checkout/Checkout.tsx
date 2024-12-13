@@ -36,34 +36,48 @@ const Checkout = () => {
       <Grid container spacing={3}>
         <CartItems cart={cart} />
       </Grid>
-      <Grid container sx={{ marginTop: "20px" }}>
-        <Grid item xs={12} sm={6}>
-          <Box sx={{ marginLeft: "1.5rem" }}>
-            <Typography variant="h6">Total:</Typography>
-          </Box>
+
+      {/* Responsiv Total-sektion */}
+      <Grid
+        container
+        alignItems="center"
+        justifyContent="space-between"
+        sx={{
+          marginTop: "20px",
+          padding: { xs: "0 1rem", md: "0 2rem" }, // Inre marginal för olika skärmar
+        }}
+      >
+        <Grid item xs={6} sm={6} sx={{ textAlign: { xs: "left", md: "left" } }}>
+          <Typography variant="h6">Total:</Typography>
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <Box
+        <Grid
+          item
+          xs={6}
+          sm={6}
+          sx={{
+            textAlign: { xs: "right", md: "right" },
+          }}
+        >
+          <Typography
+            variant="h6"
             sx={{
               fontWeight: "bold",
-              display: "inline-block",
-              verticalAlign: "middle",
-              marginLeft: "20.5rem",
+              fontSize: { xs: "18px", md: "20px" },
             }}
           >
-            {" "}
             <TotalPrice cart={cart} />
-          </Box>
+          </Typography>
         </Grid>
       </Grid>
-      {/* <Confirm knapp, renderar till confirm sidan /> */}
+
+      {/* Confirm knapp */}
       <Box sx={{ mt: 3, display: "flex", justifyContent: "center" }}>
         <Button
           type="submit"
           variant="contained"
           color="primary"
           sx={{
-            width: "30%",
+            width: { xs: "100%", sm: "50%", md: "30%" },
             backgroundColor: "black",
             color: "white",
             "&:hover": {
