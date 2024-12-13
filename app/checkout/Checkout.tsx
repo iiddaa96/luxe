@@ -33,11 +33,13 @@ const Checkout = () => {
         Checkout
       </Typography>
 
-      <Grid container spacing={3}>
-        <CartItems cart={cart} />
+      <Grid container spacing={3} justifyContent="center" alignItems="center">
+        <Grid item xs={12}>
+          {" "}
+          <CartItems cart={cart} />
+        </Grid>
       </Grid>
 
-      {/* Responsiv Total-sektion */}
       <Grid
         container
         alignItems="center"
