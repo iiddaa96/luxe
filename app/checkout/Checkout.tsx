@@ -36,30 +36,24 @@ const Checkout = () => {
       <Grid container spacing={3}>
         <CartItems cart={cart} />
       </Grid>
-      <Grid
-        container
-        sx={{
-          // alignItems: "center",
-          marginTop: "20px",
-          fontFamily: "Roboto, sans-serif",
-        }}
-      >
+      <Grid container sx={{ marginTop: "20px" }}>
         <Grid item xs={12} sm={6}>
-          <Box>
+          <Box sx={{ marginLeft: "1.5rem" }}>
             <Typography variant="h6">Total:</Typography>
           </Box>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <div
-            style={{
+          <Box
+            sx={{
               fontWeight: "bold",
               display: "inline-block",
               verticalAlign: "middle",
+              marginLeft: "20.5rem",
             }}
           >
             {" "}
             <TotalPrice cart={cart} />
-          </div>
+          </Box>
         </Grid>
       </Grid>
       {/* <Confirm knapp, renderar till confirm sidan /> */}
