@@ -1,15 +1,18 @@
 "use client";
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Button, Container, Grid, Typography } from "@mui/material";
+import { useRouter } from "next/navigation";
 import { useCart } from "../context/CheckoutContext";
-// import { BackButton } from "../ui/BackButton";
-// import PaymentSection from "../ui/PaymentSection";
 import { CartItems } from "./components/CheckoutItems";
 import TotalPrice from "./components/TotalPrice";
 
 const Checkout = () => {
-  const { cart } = useCart();
+  const { cart, setConfirmedCart } = useCart();
+  const router = useRouter();
 
-  console.log("Current cart in checkout:", cart);
+  const handleConfirm = () => {
+    setConfirmedCart(cart);
+    router.push("/confirmation");
+  };
 
   return (
     <Container
@@ -17,7 +20,6 @@ const Checkout = () => {
       component="main"
       sx={{ fontFamily: "Roboto, sans-serif" }}
     >
-      {/* <BackButton /> */}
       <Typography
         variant="h1"
         sx={{
@@ -60,7 +62,25 @@ const Checkout = () => {
           </div>
         </Grid>
       </Grid>
-      {/* <PaymentSection /> */}
+      {/* <Confirm knapp, renderar till confirm sidan /> */}
+      <Box sx={{ mt: 3, display: "flex", justifyContent: "center" }}>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          sx={{
+            width: "30%",
+            backgroundColor: "black",
+            color: "white",
+            "&:hover": {
+              backgroundColor: "darkgrey",
+            },
+          }}
+          onClick={handleConfirm}
+        >
+          Confirm
+        </Button>
+      </Box>
     </Container>
   );
 };
