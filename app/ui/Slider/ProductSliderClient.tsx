@@ -71,7 +71,10 @@ export default function ProductSliderClient({
         }}
       >
         {products.map((product) => (
-          <Card key={product.id} sx={{ width: 280, flexShrink: 0 }}>
+          <Card
+            key={product.id}
+            sx={{ width: 280, flexShrink: 0, backgroundColor: "#FCF5F3" }}
+          >
             <CardActionArea>
               <Link href={`/product/${product.id}`} passHref>
                 <CardMedia
@@ -79,9 +82,9 @@ export default function ProductSliderClient({
                   src={product.image}
                   alt={product.title}
                   sx={{
-                    height: 200,
                     width: "100%",
-                    objectFit: "cover",
+                    height: 240,
+                    objectFit: "contain",
                   }}
                 />
               </Link>
@@ -94,7 +97,15 @@ export default function ProductSliderClient({
                 >
                   {product.title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography
+                  sx={{
+                    fontSize: "0.95rem",
+                    fontWeight: "bold",
+                    color: "#666",
+                  }}
+                  variant="body2"
+                  color="text.secondary"
+                >
                   {product.price} Kr
                 </Typography>
               </CardContent>

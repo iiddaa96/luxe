@@ -82,7 +82,14 @@ const QuantityButton: React.FC<QuantityButtonProps> = ({
 
         {showTotalPrice && (
           <Box>
-            <Typography variant="subtitle1">
+            <Typography
+              sx={{
+                fontSize: "0.95rem",
+                fontWeight: "bold",
+                color: "#666",
+              }}
+              variant="subtitle1"
+            >
               {calculateTotalPrice()} kr
             </Typography>
           </Box>

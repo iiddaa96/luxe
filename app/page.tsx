@@ -132,10 +132,16 @@ export default async function Home() {
                 href={`/product/${product.id}`}
                 passHref
               >
-                <Card sx={{ ...cardStyle, margin: 1 }}>
+                <Card
+                  sx={{ ...cardStyle, margin: 1, backgroundColor: "#FCF5F3" }}
+                >
                   <CardActionArea>
                     <CardMedia
-                      sx={{ height: 200, objectFit: "cover" }}
+                      sx={{
+                        width: "100%",
+                        height: 240,
+                        objectFit: "contain",
+                      }}
                       component="img"
                       image={product.image}
                       alt={product.alt}
@@ -144,7 +150,11 @@ export default async function Home() {
                     <CardContent>
                       <Typography
                         aria-label="Product title"
-                        sx={{ fontSize: "0.9rem", fontWeight: "bold" }}
+                        sx={{
+                          fontSize: "0.9rem",
+                          fontWeight: "bold",
+                          textAlign: "center",
+                        }}
                         gutterBottom
                         variant="body1"
                         component="div"
@@ -153,7 +163,11 @@ export default async function Home() {
                       </Typography>
                       <Typography
                         aria-label="Product price"
-                        sx={{ fontSize: "1rem", fontWeight: "medium" }}
+                        sx={{
+                          fontSize: "1rem",
+                          fontWeight: "medium",
+                          textAlign: "center",
+                        }}
                         variant="body2"
                         color="text.secondary"
                       >

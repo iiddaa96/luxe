@@ -47,7 +47,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   return (
     <main>
       <Box>
-        <Grid container spacing={4}>
+        <Grid container spacing={2}>
           {category.products.map((product) => {
             return (
               <Grid item xs={12} sm={6} lg={4} xl={3} key={product.id}>
@@ -58,7 +58,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                 >
                   <Card
                     sx={{
-                      maxWidth: 300,
+                      backgroundColor: "#FCF5F3",
+                      width: 300,
+                      height: 400,
                       m: "auto",
                       boxShadow: 3,
                       position: "relative",
@@ -73,12 +75,12 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                   >
                     <CardMedia
                       component="img"
-                      width="auto"
-                      height="240"
                       image={product.image}
                       alt={product.title}
                       sx={{
-                        objectFit: "cover",
+                        width: "100%",
+                        height: 240,
+                        objectFit: "contain",
                       }}
                     />
                     <CardContent>
@@ -91,7 +93,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                       >
                         <Box>
                           <Typography
-                            variant="h6"
+                            variant="h1"
                             sx={{
                               fontSize: "1.25rem",
                               marginBottom: "8px",
