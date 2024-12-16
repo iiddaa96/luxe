@@ -16,7 +16,7 @@ import Image from "next/image";
 import Link from "next/link";
 import middleImage from "./assets/middleImage2.png";
 import AnimationBanner from "./ui/AnimationBanner";
-import ProductSlider from "./ui/Slider/ProductSlider";
+import ProductSlider from "./ui/ProductSlider";
 
 export default async function Home() {
   const products = await db.product.findMany({
@@ -74,6 +74,7 @@ export default async function Home() {
               objectPosition: "center",
             }}
           />
+          {/* Text till middleImage */}
           <Box
             sx={{
               position: "absolute",
@@ -124,9 +125,13 @@ export default async function Home() {
       {/* Mappar ut produkt */}
       <Box>
         <Grid container spacing={2} justifyContent="center">
-          {products.map((product) => (
+          {products.slice(0, 8).map((product) => (
             <Grid sx={{ marginBottom: "24px" }} item key={product.id}>
-              <Link href={`/product/${product.id}`} passHref>
+              <Link
+                style={{ textDecoration: "none" }}
+                href={`/product/${product.id}`}
+                passHref
+              >
                 <Card sx={{ ...cardStyle, margin: 1 }}>
                   <CardActionArea>
                     <CardMedia
@@ -134,7 +139,7 @@ export default async function Home() {
                       component="img"
                       image={product.image}
                       alt={product.alt}
-                      aria-label={product.alt}
+                      aria-label="Product cards"
                     />
                     <CardContent>
                       <Typography

@@ -56,7 +56,7 @@ export default function ProductSliderClient({
           textAlign: "center",
         }}
       >
-        SHOP BEST SELLERS
+        DISCOVER THE LATEST EYESHADOWS
       </Typography>
 
       <Box
