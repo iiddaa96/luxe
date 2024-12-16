@@ -122,6 +122,16 @@ const Header: React.FC<HeaderProps> = ({
         >
           <Button
             component={Link}
+            href="/admin"
+            aria-label="admin page"
+            color="inherit"
+            sx={{ padding: "10px" }}
+          >
+            Admin
+          </Button>
+          <CategoryCards />
+          <Button
+            component={Link}
             href="/tutorial"
             aria-label="View tutorial page"
             color="inherit"
@@ -129,7 +139,6 @@ const Header: React.FC<HeaderProps> = ({
           >
             Tutorial
           </Button>
-          <CategoryCards />
         </Box>
       </Menu>
     </AppBar>
