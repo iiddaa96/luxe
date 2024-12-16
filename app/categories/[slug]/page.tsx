@@ -99,6 +99,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                               marginBottom: "8px",
                               color: "#000000",
                               textAlign: "left",
+                              fontWeight: "bold",
                             }}
                           >
                             {product.title}
