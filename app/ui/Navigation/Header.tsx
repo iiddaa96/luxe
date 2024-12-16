@@ -126,6 +126,7 @@ const Header: React.FC<HeaderProps> = ({
             aria-label="admin page"
             color="inherit"
             sx={{ padding: "10px" }}
+            onClick={handleCloseNavMenu}
           >
             Admin
           </Button>
@@ -136,6 +137,7 @@ const Header: React.FC<HeaderProps> = ({
             aria-label="View tutorial page"
             color="inherit"
             sx={{ padding: "10px" }}
+            onClick={handleCloseNavMenu}
           >
             Tutorial
           </Button>
