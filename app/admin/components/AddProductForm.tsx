@@ -37,9 +37,6 @@ export default function AddProductForm({ categories }: Props) {
     setSelectedCategories(event.target.value as string[]);
   };
 
-  // Stänger dropdown när en kategori har valts
-  const handleClose = () => {};
-
   const save = (data: ProductWithCategories) => {
     const { categories, ...newProduct } = data;
     const chosenCategories = selectedCategories.map((c) => Number(c));
@@ -106,7 +103,6 @@ export default function AddProductForm({ categories }: Props) {
       <FormControl fullWidth sx={{ marginBottom: "20px" }}>
         <InputLabel id="categories-label">Categories</InputLabel>
         <Select
-          labelId="categories-label"
           label="Categories"
           multiple
           value={selectedCategories}
@@ -114,7 +110,11 @@ export default function AddProductForm({ categories }: Props) {
           onClose={() => setSelectedCategories(selectedCategories)}
         >
           {categories.map((category) => (
-            <MenuItem key={category.id} value={category.id.toString()}>
+            <MenuItem
+              aria-label={`Category ${category.name}`}
+              key={category.id}
+              value={category.id.toString()}
+            >
               {category.name}
             </MenuItem>
           ))}
@@ -128,7 +128,6 @@ export default function AddProductForm({ categories }: Props) {
         rows={6}
         helperText={form.formState.errors.content?.message}
         error={Boolean(form.formState.errors.content)}
-        {...form.register("content")}
         sx={{ width: "100%", marginBottom: "40px", height: "150px" }}
       />
 

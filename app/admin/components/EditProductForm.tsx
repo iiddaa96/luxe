@@ -18,6 +18,7 @@ import {
   Select,
   SelectChangeEvent,
   TextField,
+  Typography,
 } from "@mui/material";
 import { Prisma, Product } from "@prisma/client";
 import { useRouter } from "next/navigation";
@@ -25,8 +26,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 export interface Props {
-  categories: Prisma.CategoryGetPayload<{}>[]; // Alla kategorier
-  product: Product & { categories: { id: number; name: string }[] }; // Produkt med sina kategorier
+  categories: Prisma.CategoryGetPayload<{}>[];
+  product: Product & { categories: { id: number; name: string }[] };
 }
 
 export default function EditProductForm({ categories, product }: Props) {
@@ -90,6 +91,12 @@ export default function EditProductForm({ categories, product }: Props) {
         boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)",
       }}
     >
+      <Box>
+        <Typography variant="h1" sx={{ fontSize: "2rem" }}>
+          Edit product
+        </Typography>
+      </Box>
+
       <TextField
         fullWidth
         label="Title"
@@ -122,7 +129,6 @@ export default function EditProductForm({ categories, product }: Props) {
       <FormControl fullWidth sx={{ marginBottom: "20px" }}>
         <InputLabel id="categories-label">Categories</InputLabel>
         <Select
-          labelId="categories-label"
           label="Categories"
           multiple
           value={selectedCategories}
@@ -130,7 +136,11 @@ export default function EditProductForm({ categories, product }: Props) {
           onClose={() => setSelectedCategories(selectedCategories)}
         >
           {categories.map((category) => (
-            <MenuItem key={category.id} value={category.id.toString()}>
+            <MenuItem
+              aria-label={`Category ${category.name}`}
+              key={category.id}
+              value={category.id.toString()}
+            >
               {category.name}
             </MenuItem>
           ))}
