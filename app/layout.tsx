@@ -1,4 +1,3 @@
-// import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { Metadata } from "next";
 import { ReactNode } from "react";
 import { CartProvider } from "./context/CheckoutContext";
@@ -26,7 +25,6 @@ export default function RootLayout({ children }: LayoutProps) {
         }}
       >
         <CartProvider>
-          {/* <AppRouterCacheProvider> */}
           <div
             style={{
               position: "sticky",
@@ -46,7 +44,6 @@ export default function RootLayout({ children }: LayoutProps) {
             {children}
           </main>
           <Footer />
-          {/* </AppRouterCacheProvider> */}
         </CartProvider>
       </body>
     </html>

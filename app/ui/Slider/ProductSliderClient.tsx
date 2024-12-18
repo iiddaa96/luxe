@@ -116,6 +116,7 @@ export default function ProductSliderClient({
 
       {/* Navigation för att scrolla */}
       <IconButton
+        aria-label="Scroll left"
         onClick={() => handleScroll(-200)}
         sx={{
           position: "absolute",
@@ -129,6 +130,7 @@ export default function ProductSliderClient({
       </IconButton>
 
       <IconButton
+        aria-label="Scroll right"
         onClick={() => handleScroll(200)}
         sx={{
           position: "absolute",
