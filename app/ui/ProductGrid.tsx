@@ -40,7 +40,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
     <Container fixed>
       <Typography
         variant="h1"
-        aria-label="Admin"
+        aria-label="Admin title"
         sx={{
           marginTop: "-1rem",
           display: "flex",
@@ -60,7 +60,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
                 <StyledCard>
                   <CardActionArea>
                     <CardMedia
-                      aria-label="Product image"
+                      aria-label={product.alt}
                       component="img"
                       sx={{
                         height: { xs: 200, sm: 300 },
@@ -71,7 +71,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
                     />
                     <CardContent>
                       <Typography
-                        aria-label="Product title"
+                        aria-label={product.title}
                         gutterBottom
                         variant="h6"
                         sx={{
@@ -93,14 +93,18 @@ export default function ProductGrid({ products }: ProductGridProps) {
                         {`${product.price.toString()}Kr`}
                       </Typography>
                       <Box
-                        aria-label="Link to edit product"
+                        aria-label="Link button to edit product"
                         sx={{
                           display: "flex",
                           justifyContent: "space-between",
                           alignItems: "center",
                         }}
                       >
-                        <Link href={`/admin/product/${product.id}`} passHref>
+                        <Link
+                          aria-label="Navigate to edit form"
+                          href={`/admin/product/${product.id}`}
+                          passHref
+                        >
                           <EditNoteIcon fontSize="large" />
                         </Link>
                       </Box>

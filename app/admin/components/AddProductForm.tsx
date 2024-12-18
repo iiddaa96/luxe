@@ -12,6 +12,7 @@ import {
   Select,
   SelectChangeEvent,
   TextField,
+  Typography,
 } from "@mui/material";
 import { Prisma, Product } from "@prisma/client";
 import { useRouter } from "next/navigation";
@@ -37,9 +38,7 @@ export default function AddProductForm({ categories }: Props) {
   };
 
   // Stänger dropdown när en kategori har valts
-  const handleClose = () => {
-    // Här kan vi också lägga till logik om vi vill hantera något när dropdownen stängs
-  };
+  const handleClose = () => {};
 
   const save = (data: ProductWithCategories) => {
     const { categories, ...newProduct } = data;
@@ -57,6 +56,7 @@ export default function AddProductForm({ categories }: Props) {
   };
   return (
     <Box
+      aria-label="Add product form"
       component="form"
       onSubmit={form.handleSubmit(save)}
       sx={{
@@ -70,25 +70,28 @@ export default function AddProductForm({ categories }: Props) {
         boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)",
       }}
     >
+      <Box>
+        <Typography variant="h1" sx={{ fontSize: "2rem" }}>
+          Add new Product
+        </Typography>
+      </Box>
+
       <TextField
         fullWidth
         label="Title"
         helperText={form.formState.errors.title?.message}
         error={Boolean(form.formState.errors.title)}
-        id="demo-helper-text-aligned-no-helper"
-        sx={{ width: "100%", marginBottom: "20px" }}
         {...form.register("title")}
-        aria-describedby="title-error"
+        sx={{ width: "100%", marginBottom: "20px" }}
       />
 
       <TextField
         fullWidth
-        label="Image"
+        label="Image url"
         helperText={form.formState.errors.image?.message}
         error={Boolean(form.formState.errors.image)}
-        id="demo-helper-text-aligned-no-helper"
-        sx={{ width: "100%", marginBottom: "20px" }}
         {...form.register("image")}
+        sx={{ width: "100%", marginBottom: "20px" }}
       />
 
       <TextField
@@ -96,45 +99,42 @@ export default function AddProductForm({ categories }: Props) {
         label="Price"
         helperText={form.formState.errors.price?.message}
         error={Boolean(form.formState.errors.price)}
-        id="demo-helper-text-aligned-no-helper"
-        sx={{ width: "100%", marginBottom: "20px" }}
         {...form.register("price")}
+        sx={{ marginBottom: "20px" }}
       />
 
       <FormControl fullWidth sx={{ marginBottom: "20px" }}>
         <InputLabel id="categories-label">Categories</InputLabel>
         <Select
           labelId="categories-label"
+          label="Categories"
           multiple
           value={selectedCategories}
-          label="Categories"
-          placeholder="Choose a category"
           onChange={handleCategoryChange}
-          onClose={handleClose}
+          onClose={() => setSelectedCategories(selectedCategories)}
         >
-          {categories.map((c) => (
-            <MenuItem key={c.id} value={c.id.toString()}>
-              {c.name}
+          {categories.map((category) => (
+            <MenuItem key={category.id} value={category.id.toString()}>
+              {category.name}
             </MenuItem>
           ))}
         </Select>
       </FormControl>
 
       <TextField
-        id="outlined-multiline-static"
+        fullWidth
         label="Content"
-        helperText={form.formState.errors.content?.message}
-        error={Boolean(form.formState.errors.content)}
         multiline
         rows={6}
-        variant="outlined"
-        sx={{ width: "100%", marginBottom: "40px", height: "150px" }}
+        helperText={form.formState.errors.content?.message}
+        error={Boolean(form.formState.errors.content)}
         {...form.register("content")}
+        sx={{ width: "100%", marginBottom: "40px", height: "150px" }}
       />
 
       <Box sx={{ display: "flex", gap: "5vh" }}>
         <Button
-          aria-label="Save product"
+          aria-label="Save product button"
           type="submit"
           variant="contained"
           sx={{ width: "150px" }}

@@ -9,6 +9,7 @@ interface AddToCheckoutButtonProps {
   product: Product;
 }
 
+// This is a button that adds a product to the cart
 const AddToCheckoutButton: React.FC<AddToCheckoutButtonProps> = ({
   product,
 }) => {

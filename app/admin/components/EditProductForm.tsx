@@ -77,7 +77,7 @@ export default function EditProductForm({ categories, product }: Props) {
   return (
     <Box
       component="form"
-      aria-labelledby="edit-product-form"
+      aria-labelledby="Edit-product-form"
       onSubmit={form.handleSubmit(save)}
       sx={{
         borderRadius: "10px",
@@ -92,8 +92,8 @@ export default function EditProductForm({ categories, product }: Props) {
     >
       <TextField
         fullWidth
-        aria-labelledby="title-label"
         label="Title"
+        error={Boolean(form.formState.errors.title)}
         defaultValue={product.title}
         {...form.register("title")}
         sx={{ width: "100%", marginBottom: "20px" }}
@@ -101,8 +101,9 @@ export default function EditProductForm({ categories, product }: Props) {
 
       <TextField
         fullWidth
-        aria-labelledby="image-url"
-        label="Image URL"
+        label="Image url"
+        helperText={form.formState.errors.image?.message}
+        error={Boolean(form.formState.errors.image)}
         defaultValue={product.image}
         {...form.register("image")}
         sx={{ width: "100%", marginBottom: "20px" }}
@@ -110,27 +111,27 @@ export default function EditProductForm({ categories, product }: Props) {
 
       <TextField
         fullWidth
-        aria-labelledby="price-label"
         label="Price"
+        helperText={form.formState.errors.price?.message}
+        error={Boolean(form.formState.errors.price)}
         defaultValue={product.price.toString()}
         {...form.register("price")}
         sx={{ marginBottom: "20px" }}
       />
 
       <FormControl fullWidth sx={{ marginBottom: "20px" }}>
-        <InputLabel aria-label="Categories-label">Categories</InputLabel>
+        <InputLabel id="categories-label">Categories</InputLabel>
         <Select
-          aria-label="Categories alternative"
+          labelId="categories-label"
           label="Categories"
           multiple
           value={selectedCategories}
-          placeholder="Choose a category"
           onChange={handleCategoryChange}
           onClose={() => setSelectedCategories(selectedCategories)}
         >
-          {categories.map((c) => (
-            <MenuItem key={c.id} value={c.id.toString()}>
-              {c.name}
+          {categories.map((category) => (
+            <MenuItem key={category.id} value={category.id.toString()}>
+              {category.name}
             </MenuItem>
           ))}
         </Select>
@@ -138,21 +139,23 @@ export default function EditProductForm({ categories, product }: Props) {
 
       <TextField
         fullWidth
-        aria-label="Product content"
         label="Content"
         multiline
         rows={6}
+        helperText={form.formState.errors.content?.message}
+        error={Boolean(form.formState.errors.content)}
         defaultValue={product.content}
         {...form.register("content")}
         sx={{ width: "100%", marginBottom: "40px", height: "150px" }}
       />
+
       <Box sx={{ display: "flex", gap: "10px" }}>
-        <Button aria-label="save button" type="submit" variant="contained">
+        <Button aria-label="Save button" type="submit" variant="contained">
           <SaveIcon />
           Save
         </Button>
         <Button
-          aria-label="delete button"
+          aria-label="Delete button"
           variant="outlined"
           color="error"
           onClick={() => setOpenDialog(true)} // Öppna dialogen rutan

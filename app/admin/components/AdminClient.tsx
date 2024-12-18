@@ -28,7 +28,10 @@ function AdminClient({ products }: ProductGridProps) {
         }}
       >
         {/* Lägger till produkt /> */}
-        <Link href="/admin/product/new">
+        <Link
+          aria-label="Navigate to add new product form"
+          href="/admin/product/new"
+        >
           <AddIcon
             sx={{
               color: "black",
