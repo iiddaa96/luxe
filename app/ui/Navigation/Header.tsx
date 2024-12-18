@@ -2,9 +2,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import {
   AppBar,
   Box,
-  Button,
   IconButton,
   Menu,
+  MenuItem,
   Toolbar,
   Typography,
 } from "@mui/material";
@@ -63,7 +63,7 @@ const Header: React.FC<HeaderProps> = ({
           <Box
             component={Link}
             href="/"
-            aria-label="Go to homepage"
+            aria-label="Navigate to homepage"
             sx={{
               display: "flex",
               justifyContent: "center",
@@ -74,9 +74,9 @@ const Header: React.FC<HeaderProps> = ({
             }}
           >
             <Typography
+              aria-label="Header Luxe"
               variant="h6"
               noWrap
-              aria-label="Company name luxe"
               component="div"
               sx={{
                 fontFamily: "monospace",
@@ -92,7 +92,7 @@ const Header: React.FC<HeaderProps> = ({
 
           {/* Varukorg ikon (synlig bara på mobil) */}
           <Box
-            aria-label="Checkout icon button"
+            aria-label="Navigate to checkout"
             sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
           >
             <CheckoutButton />
@@ -120,27 +120,27 @@ const Header: React.FC<HeaderProps> = ({
         <Box
           sx={{ display: { xs: "flex", md: "none" }, flexDirection: "column" }}
         >
-          <Button
+          <MenuItem
             component={Link}
             href="/admin"
-            aria-label="admin page"
+            aria-label="Navigate to admin page"
             color="inherit"
             sx={{ padding: "10px" }}
             onClick={handleCloseNavMenu}
           >
             Admin
-          </Button>
+          </MenuItem>
           <CategoryCards />
-          <Button
+          <MenuItem
             component={Link}
             href="/tutorial"
-            aria-label="View tutorial page"
+            aria-label="Navigate to tutorial page"
             color="inherit"
             sx={{ padding: "10px" }}
             onClick={handleCloseNavMenu}
           >
             Tutorial
-          </Button>
+          </MenuItem>
         </Box>
       </Menu>
     </AppBar>
