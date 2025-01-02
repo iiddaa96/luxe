@@ -19,7 +19,6 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
 export interface Props {
   categories: Prisma.CategoryGetPayload<{}>[];
 }
