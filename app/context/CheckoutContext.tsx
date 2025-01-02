@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import { Product } from "@prisma/client";
 import {
@@ -22,6 +21,7 @@ export interface CartContextType {
 
 const CART_LOCAL_STORAGE_KEY = "cart";
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 export const CartContext = createContext<CartContextType>({
   cart: [],
   confirmedCart: [],
