@@ -29,7 +29,7 @@ export const CartContext = createContext<CartContextType>({
   updateQuantity: () => {},
   clearCart: () => {},
   setConfirmedCart: () => {},
-} as CartContextType);
+} as object as CartContextType);
 
 export const useCart = () => useContext(CartContext);
 
