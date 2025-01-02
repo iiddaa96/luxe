@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { addNewProduct } from "@/app/endpoints/product-endpoints";
 import { productSchema } from "@/app/zod-validation/products";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -14,13 +15,13 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { Category, Product } from "@prisma/client";
+import { Prisma, Product } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 export interface Props {
-  categories: Category[];
+  categories: Prisma.CategoryGetPayload<{}>[];
 }
 
 export type ProductWithCategories = Product & { categories: string[] | null };
