@@ -52,6 +52,7 @@ export default function AddProductForm({ categories }: Props) {
       console.log("Error");
     }
   };
+
   return (
     <Box
       aria-label="Add product form"
@@ -110,7 +111,7 @@ export default function AddProductForm({ categories }: Props) {
           onChange={handleCategoryChange}
           onClose={() => setSelectedCategories(selectedCategories)}
         >
-          {categories.map((category) => (
+          {categories?.map((category) => (
             <MenuItem
               aria-label={`Category ${category.name}`}
               key={category.id}
