@@ -29,7 +29,7 @@ export const CartContext = createContext<CartContextType>({
   updateQuantity: () => {},
   clearCart: () => {},
   setConfirmedCart: () => {},
-} as object as CartContextType);
+});
 
 export const useCart = () => useContext(CartContext);
 
@@ -47,14 +47,14 @@ export const CartProvider = ({ children }: PropsWithChildren<{}>) => {
   useEffect(() => {
     const savedCart = localStorage.getItem(CART_LOCAL_STORAGE_KEY);
     if (savedCart) {
-      setCart(JSON.parse(savedCart)); // Återställ varukorgen om den finns i localStorage
+      setCart(JSON.parse(savedCart));
     }
     setIsLoaded(true);
   }, []);
 
   // Effekt för att spara varukorgen till lokal lagring när den uppdateras
   useEffect(() => {
-    if (!isLoaded) return; // Vänta tills varukorgen är laddad
+    if (!isLoaded) return;
     localStorage.setItem(CART_LOCAL_STORAGE_KEY, JSON.stringify(cart));
   }, [cart, isLoaded]);
 
