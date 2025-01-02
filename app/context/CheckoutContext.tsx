@@ -21,15 +21,7 @@ export interface CartContextType {
 
 const CART_LOCAL_STORAGE_KEY = "cart";
 
-export const CartContext = createContext<CartContextType>({
-  cart: [],
-  confirmedCart: [],
-  addToCart: () => {},
-  removeFromCart: () => {},
-  updateQuantity: () => {},
-  clearCart: () => {},
-  setConfirmedCart: () => {},
-});
+export const CartContext = createContext<CartContextType | null>(null);
 
 export const useCart = () => useContext(CartContext);
 
