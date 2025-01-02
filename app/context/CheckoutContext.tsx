@@ -29,7 +29,7 @@ export const CartContext = createContext<CartContextType>({
   updateQuantity: () => {},
   clearCart: () => {},
   setConfirmedCart: () => {},
-});
+} as CartContextType);
 
 export const useCart = () => useContext(CartContext);
 
@@ -64,7 +64,7 @@ export const CartProvider = ({ children }: PropsWithChildren<{}>) => {
       const existingProductIndex = prevCart.findIndex(
         (item) => item.id === product.id
       );
-      let updatedCart = [...prevCart];
+      const updatedCart = [...prevCart];
 
       if (existingProductIndex >= 0) {
         const updatedItem = {
