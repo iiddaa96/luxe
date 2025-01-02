@@ -5,6 +5,10 @@ import AddProductForm from "../../components/AddProductForm";
 
 const AddNewProduct: React.FC = async () => {
   const categories = await db.category.findMany();
+
+  if (!categories || categories.length === 0) {
+    return <div>No categories available</div>; // Om inte kategorier finns så visas ett error meddelande
+  }
   return (
     <Container
       fixed
