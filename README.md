@@ -71,4 +71,5 @@ This is a product website called Luxe that sells makeup and provides tutorials t
 #### Deploy
 
 - [-] Host projektet och gör det tillgängligt för visning i en webbläsare eller simulator.
-- Har error i vercel som inte har gått att lösa för mig. Men allt annat funkar precis som det ska.
+
+#### Problem: Deployment har inte fungerat på Vercel på grund av ett okänt fel som inte har kunnat lösas hittills, men allt annat fungerar som det ska. \*
