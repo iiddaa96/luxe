@@ -20,13 +20,13 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { Prisma, Product } from "@prisma/client";
+import { Category, Product } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 export interface Props {
-  categories: Prisma.CategoryGetPayload<{}>[];
+  categories: Category[];
   product: Product & { categories: { id: number; name: string }[] };
 }
 
