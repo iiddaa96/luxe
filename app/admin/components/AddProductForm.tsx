@@ -1,5 +1,5 @@
-"use client";
 /* eslint-disable @typescript-eslint/no-unused-vars */
+"use client";
 import { addNewProduct } from "@/app/endpoints/product-endpoints";
 import { productSchema } from "@/app/zod-validation/products";
 import { zodResolver } from "@hookform/resolvers/zod";

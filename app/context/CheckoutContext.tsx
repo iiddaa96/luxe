@@ -1,5 +1,5 @@
-"use client";
 /* eslint-disable @typescript-eslint/no-unused-vars */
+"use client";
 import { Product } from "@prisma/client";
 import {
   PropsWithChildren,
