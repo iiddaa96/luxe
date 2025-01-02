@@ -36,8 +36,8 @@ const Confirmation = () => {
           new products.
         </Typography>
         <Typography>
-          Here's your digital receipt from LUXE. Explore more exciting products
-          on our website Luxe.se
+          Here&apos;s your digital receipt from LUXE. Explore more exciting
+          products on our website Luxe.se
         </Typography>
         <Typography>
           Hope to see you again soon! Greetings from us at LUXE.
