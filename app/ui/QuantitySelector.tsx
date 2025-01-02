@@ -18,7 +18,7 @@ const QuantityButton: React.FC<QuantityButtonProps> = ({
   showControls = true,
   showTotalPrice = true,
 }) => {
-  const { cart, updateQuantity, removeFromCart, confirmedCart } = useCart();
+  const { cart, updateQuantity, removeFromCart } = useCart();
   const [quantity, setQuantity] = useState<number>(initialQuantity);
 
   /**

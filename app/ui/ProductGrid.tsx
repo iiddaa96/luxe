@@ -13,7 +13,6 @@ import {
 } from "@mui/material";
 import { Product } from "@prisma/client";
 import Link from "next/link";
-import React from "react";
 
 const StyledCard = styled(Card)(({ theme }) => ({
   padding: theme.spacing(2),
@@ -30,12 +29,6 @@ export interface ProductGridProps {
 }
 
 export default function ProductGrid({ products }: ProductGridProps) {
-  const [dialogOpen, setDialogOpen] = React.useState(false);
-
-  const handleDialogClose = () => {
-    setDialogOpen(false);
-  };
-
   return (
     <Container fixed>
       <Typography

@@ -11,7 +11,7 @@ export async function getAllProducts() {
       },
     });
   } catch (error) {
-    console.error("Failed to retrieve all products");
+    console.error("Failed to retrieve all products:", error);
     throw new Error("Failed to retrieve all products");
   }
 }

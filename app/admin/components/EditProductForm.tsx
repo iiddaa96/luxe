@@ -209,7 +209,7 @@ export default function EditProductForm({ categories, product }: Props) {
             }}
           >
             Are you sure you want to delete this product? This action cannot be
-            undone.
+            undone
           </DialogContentText>
         </DialogContent>
         <DialogActions

@@ -23,11 +23,12 @@ export interface Props {
   categories: Category[];
 }
 
-export type ProductWithCategories = Product & { categories: string[] };
+export type ProductWithCategories = Product & { categories: string[] | null };
 
 export default function AddProductForm({ categories }: Props) {
   const router = useRouter();
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+
   const form = useForm<ProductWithCategories>({
     mode: "onChange",
     resolver: zodResolver(productSchema),
