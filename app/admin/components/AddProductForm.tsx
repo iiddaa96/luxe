@@ -20,25 +20,18 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 export interface Props {
-  categories: Prisma.CategoryGetPayload<{
-    select: {
-      id: true;
-      name: true;
-    };
-  }>[];
+  categories: Prisma.CategoryGetPayload<{}>[];
 }
 
-export type ProductWithCategories = Product & { categories: string[] | null };
+export type ProductWithCategories = Product & { categories: string[] };
 
 export default function AddProductForm({ categories }: Props) {
   const router = useRouter();
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-
   const form = useForm<ProductWithCategories>({
     mode: "onChange",
     resolver: zodResolver(productSchema),
   });
-
   const handleCategoryChange = (event: SelectChangeEvent<string[]>) => {
     setSelectedCategories(event.target.value as string[]);
   };
@@ -49,15 +42,11 @@ export default function AddProductForm({ categories }: Props) {
 
     addNewProduct(newProduct, chosenCategories);
     router.push("/admin");
-    setTimeout(() => {
-      router.refresh();
-    }, 100);
 
     if (!addNewProduct) {
       console.log("Error");
     }
   };
-
   return (
     <Box
       aria-label="Add product form"
@@ -76,7 +65,7 @@ export default function AddProductForm({ categories }: Props) {
     >
       <Box>
         <Typography variant="h1" sx={{ fontSize: "2rem" }}>
-          Add new Product
+          Add new product
         </Typography>
       </Box>
 
@@ -85,8 +74,8 @@ export default function AddProductForm({ categories }: Props) {
         label="Title"
         helperText={form.formState.errors.title?.message}
         error={Boolean(form.formState.errors.title)}
-        {...form.register("title")}
         sx={{ width: "100%", marginBottom: "20px" }}
+        {...form.register("title")}
       />
 
       <TextField
@@ -94,8 +83,8 @@ export default function AddProductForm({ categories }: Props) {
         label="Image url"
         helperText={form.formState.errors.image?.message}
         error={Boolean(form.formState.errors.image)}
-        {...form.register("image")}
         sx={{ width: "100%", marginBottom: "20px" }}
+        {...form.register("image")}
       />
 
       <TextField
@@ -103,39 +92,50 @@ export default function AddProductForm({ categories }: Props) {
         label="Price"
         helperText={form.formState.errors.price?.message}
         error={Boolean(form.formState.errors.price)}
+        sx={{ width: "100%", marginBottom: "20px" }}
         {...form.register("price")}
-        sx={{ marginBottom: "20px" }}
       />
 
+      {/* Textfält för kategorierna */}
+      {/* Är label fel på denna som jag inte kan fixa, har testat massvis med olika lösningar som inte fungerar */}
       <FormControl fullWidth sx={{ marginBottom: "20px" }}>
         <InputLabel id="categories-label">Categories</InputLabel>
         <Select
+          labelId="categories-label"
+          id="categories-select"
           label="Categories"
           multiple
           value={selectedCategories}
+          {...form.register("categories")}
+          sx={{
+            width: "100%",
+            marginBottom: "20px",
+            color: "black",
+          }}
           onChange={handleCategoryChange}
-          onClose={() => setSelectedCategories(selectedCategories)}
         >
-          {categories?.map((category) => (
+          {categories.map((c) => (
             <MenuItem
-              aria-label={`Category ${category.name}`}
-              key={category.id}
-              value={category.id.toString()}
+              aria-label={`Category ${c.name}`}
+              key={c.id}
+              value={c.id.toString()}
             >
-              {category.name}
+              {c.name}
             </MenuItem>
           ))}
         </Select>
       </FormControl>
 
       <TextField
-        fullWidth
+        id="content-textfield"
         label="Content"
         multiline
         rows={6}
         helperText={form.formState.errors.content?.message}
         error={Boolean(form.formState.errors.content)}
-        sx={{ width: "100%", marginBottom: "40px", height: "150px" }}
+        variant="outlined"
+        sx={{ width: "100%", marginBottom: "20px" }}
+        {...form.register("content")}
       />
 
       <Box sx={{ display: "flex", gap: "5vh" }}>

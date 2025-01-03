@@ -32,8 +32,10 @@ export const CartContext = createContext<CartContextType>({
 });
 
 export const useCart = () => useContext(CartContext);
-
-export const CartProvider = ({ children }: PropsWithChildren<{}>) => {
+//Fel här för vercel
+export const CartProvider = ({
+  children,
+}: PropsWithChildren<React.ReactNode>) => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [confirmedCart, setConfirmedCart] = useState<CartItem[]>([]);

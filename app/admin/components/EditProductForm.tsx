@@ -78,7 +78,7 @@ export default function EditProductForm({ categories, product }: Props) {
   return (
     <Box
       component="form"
-      aria-labelledby="Edit-product-form"
+      aria-label="Edit product form"
       onSubmit={form.handleSubmit(save)}
       sx={{
         borderRadius: "10px",
@@ -100,20 +100,21 @@ export default function EditProductForm({ categories, product }: Props) {
       <TextField
         fullWidth
         label="Title"
-        error={Boolean(form.formState.errors.title)}
         defaultValue={product.title}
-        {...form.register("title")}
+        helperText={form.formState.errors.title?.message}
+        error={Boolean(form.formState.errors.title)}
         sx={{ width: "100%", marginBottom: "20px" }}
+        {...form.register("title")}
       />
 
       <TextField
         fullWidth
         label="Image url"
+        defaultValue={product.image}
         helperText={form.formState.errors.image?.message}
         error={Boolean(form.formState.errors.image)}
-        defaultValue={product.image}
-        {...form.register("image")}
         sx={{ width: "100%", marginBottom: "20px" }}
+        {...form.register("image")}
       />
 
       <TextField
@@ -121,34 +122,42 @@ export default function EditProductForm({ categories, product }: Props) {
         label="Price"
         helperText={form.formState.errors.price?.message}
         error={Boolean(form.formState.errors.price)}
-        defaultValue={product.price.toString()}
+        sx={{ width: "100%", marginBottom: "20px" }}
         {...form.register("price")}
-        sx={{ marginBottom: "20px" }}
       />
 
+      {/* Textfält för kategorierna */}
+      {/* Är label fel och någon kontrast fel på denna som jag inte kan fixa, har testat massvis med olika lösningar som inte fungerar */}
       <FormControl fullWidth sx={{ marginBottom: "20px" }}>
         <InputLabel id="categories-label">Categories</InputLabel>
         <Select
+          labelId="categories-label"
+          id="categories-select"
           label="Categories"
           multiple
           value={selectedCategories}
           onChange={handleCategoryChange}
-          onClose={() => setSelectedCategories(selectedCategories)}
+          sx={{
+            color: "#000000",
+            backgroundColor: "white",
+          }}
         >
-          {categories.map((category) => (
+          {categories.map((c) => (
             <MenuItem
-              aria-label={`Category ${category.name}`}
-              key={category.id}
-              value={category.id.toString()}
+              key={c.id}
+              value={c.id.toString()}
+              sx={{
+                color: "#000000",
+                backgroundColor: "white",
+              }}
             >
-              {category.name}
+              {c.name}
             </MenuItem>
           ))}
         </Select>
       </FormControl>
 
       <TextField
-        fullWidth
         label="Content"
         multiline
         rows={6}
@@ -185,7 +194,7 @@ export default function EditProductForm({ categories, product }: Props) {
             borderRadius: "12px",
             padding: "20px",
             boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
-            backgroundColor: "#fefefe",
+            backgroundColor: "#ffffff",
           },
         }}
       >
@@ -194,7 +203,7 @@ export default function EditProductForm({ categories, product }: Props) {
           sx={{
             fontSize: "1.5rem",
             fontWeight: "bold",
-            color: "#333",
+            color: "#3f3e3e",
           }}
         >
           Confirm delete
@@ -224,8 +233,8 @@ export default function EditProductForm({ categories, product }: Props) {
             color="primary"
             variant="outlined"
             sx={{
-              borderColor: "#1976d2",
-              color: "#1976d2",
+              borderColor: "#117de9",
+              color: "#2273c4",
               "&:hover": {
                 backgroundColor: "rgba(25, 118, 210, 0.1)",
               },
