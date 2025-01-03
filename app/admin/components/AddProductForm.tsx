@@ -20,7 +20,12 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 export interface Props {
-  categories: Prisma.CategoryGetPayload<{}>[];
+  categories: Prisma.CategoryGetPayload<{
+    select: {
+      id: true;
+      name: true;
+    };
+  }>[];
 }
 
 export type ProductWithCategories = Product & { categories: string[] | null };
