@@ -47,6 +47,24 @@ export default function AddProductForm({ categories }: Props) {
       console.log("Error");
     }
   };
+
+  if (!categories || categories.length === 0) {
+    return (
+      <Box
+        sx={{
+          padding: "20px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Typography variant="h6" color="error">
+          No categories available. Please add categories first.
+        </Typography>
+      </Box>
+    );
+  }
   return (
     <Box
       aria-label="Add product form"
