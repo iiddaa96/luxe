@@ -6,6 +6,10 @@ import SaveIcon from "@mui/icons-material/Save";
 import {
   Box,
   Button,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
   SelectChangeEvent,
   TextField,
   Typography,
@@ -96,7 +100,7 @@ export default function AddProductForm({ categories }: Props) {
 
       {/* Textfält för kategorierna */}
       {/* Är label fel på denna som jag inte kan fixa, har testat massvis med olika lösningar som inte fungerar */}
-      {/* <FormControl fullWidth sx={{ marginBottom: "20px" }}>
+      <FormControl fullWidth sx={{ marginBottom: "20px" }}>
         <InputLabel id="categories-label">Categories</InputLabel>
         <Select
           labelId="categories-label"
@@ -122,7 +126,7 @@ export default function AddProductForm({ categories }: Props) {
             </MenuItem>
           ))}
         </Select>
-      </FormControl> */}
+      </FormControl>
 
       <TextField
         id="content-textfield"
