@@ -28,10 +28,7 @@ This is a product website called Luxe that sells makeup and provides tutorials t
 - `npm run dev`
 - `npm run studio`
 
-**Godkänt**
-
-#### Planering och Research
-
+### Checklista för godkänt
 - [x] Utför en noggrann målgruppsanalys.
 - [x] Använd ett projekthanteringsverktyg, som Trello eller Kanban, för att strukturera arbetet.
 
