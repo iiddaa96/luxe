@@ -37,18 +37,18 @@ export default function AddProductForm({ categories }: Props) {
   };
 
   const save = (data: ProductWithCategories) => {
-    const { categories, ...newProduct } = data;
+    const { ...newProduct } = data;
     const chosenCategories = selectedCategories.map((c) => Number(c));
 
     addNewProduct(newProduct, chosenCategories);
     router.push("/admin");
+    router.refresh();
 
     if (!addNewProduct) {
       console.log("Error");
     }
   };
 
-  console.log("Categories:", categories);
   return (
     <Box
       aria-label="Add product form"
@@ -103,18 +103,15 @@ export default function AddProductForm({ categories }: Props) {
       <FormControl fullWidth sx={{ marginBottom: "20px" }}>
         <InputLabel id="categories-label">Categories</InputLabel>
         <Select
-          labelId="categories-label"
-          id="categories-select"
-          label="Categories"
+          label="categories"
           multiple
           value={selectedCategories}
-          {...form.register("categories")}
+          onChange={handleCategoryChange}
           sx={{
             width: "100%",
             marginBottom: "20px",
             color: "black",
           }}
-          onChange={handleCategoryChange}
         >
           {categories.map((c) => (
             <MenuItem
