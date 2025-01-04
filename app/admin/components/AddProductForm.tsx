@@ -101,7 +101,7 @@ export default function AddProductForm({ categories }: Props) {
       />
 
       {/* Textfält för kategorierna */}
-      {/* Är label fel på denna som jag inte kan fixa, har testat massvis med olika lösningar som inte fungerar */}
+      {/* WCAG Är label fel på denna som jag inte kan fixa, har testat massvis med olika lösningar som inte fungerar. MUI som fuckar upp det */}
       <FormControl fullWidth sx={{ marginBottom: "20px" }}>
         <InputLabel id="categories-label">Categories</InputLabel>
         <Select

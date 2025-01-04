@@ -322,7 +322,7 @@ export default function EditProductForm({ categories, product }: Props) {
     router.refresh();
   }
   const save = (data: ProductWithCategories) => {
-    const { categories, ...updatedProduct } = data;
+    const { ...updatedProduct } = data;
     const chosenCategories = selectedCategories.map((c) => Number(c));
 
     editProduct(updatedProduct, chosenCategories, Number(id));
@@ -379,7 +379,7 @@ export default function EditProductForm({ categories, product }: Props) {
         {...form.register("price")}
       />
       {/* Textfält för kategorierna */}
-      {/* Är label fel och någon kontrast fel på denna som jag inte kan fixa, har testat massvis med olika lösningar som inte fungerar */}
+      {/* WCAG Är label fel på denna som jag inte kan fixa, har testat massvis med olika lösningar som inte fungerar. MUI som fuckar upp det */}
       <FormControl fullWidth sx={{ marginBottom: "20px" }}>
         <InputLabel id="categories-label">Categories</InputLabel>
         <Select
