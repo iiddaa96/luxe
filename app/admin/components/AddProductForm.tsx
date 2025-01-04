@@ -42,7 +42,9 @@ export default function AddProductForm({ categories }: Props) {
 
     addNewProduct(newProduct, chosenCategories);
     router.push("/admin");
-    router.refresh();
+    setTimeout(() => {
+      router.refresh();
+    }, 100);
 
     if (!addNewProduct) {
       console.log("Error");
