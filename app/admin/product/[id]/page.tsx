@@ -49,31 +49,55 @@
 
 import db from "@/prisma/db";
 import { Container } from "@mui/material";
-import { notFound } from "next/navigation";
+import { Category, Product } from "@prisma/client";
+import { GetServerSideProps } from "next";
 import EditProductForm from "../../components/EditProductForm";
 
-//Hämtar produkt och kategorier från databasen
-async function fetchProductAndCategories(id: string) {
+type Props = {
+  params: { id: string }; // params.id kommer vara en string här
+  product: Product | null; // Vi hanterar produktens data
+  categories: Category[]; // Kategorierna vi hämtar
+};
+
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+  const { id } = params as { id: string }; // Definiera id som string
+
+  // Hämta produkt och kategorier
   const product = await db.product.findFirst({ where: { id: Number(id) } });
   const categories = await db.category.findMany();
 
-  return { product, categories };
-}
-
-// Huvudkomponent
-export default async function UpdateExistProduct({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const { id } = params;
-
-  // Hämta produkt och kategorier
-  const { product, categories } = await fetchProductAndCategories(id);
-
-  // Om produkten inte finns, visa en 404-sida
   if (!product) {
-    return notFound();
+    return {
+      notFound: true, // För att hantera om produkten inte finns
+    };
+  }
+
+  return {
+    props: {
+      params: { id },
+      product,
+      categories,
+    },
+  };
+};
+
+export default function UpdateExistProduct({ product, categories }: Props) {
+  if (!product) {
+    return (
+      <Container
+        fixed
+        component="main"
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          marginTop: "30px",
+          marginBottom: "30px",
+        }}
+      >
+        <p>Product not found</p>
+      </Container>
+    );
   }
 
   return (
