@@ -57,25 +57,16 @@ import db from "@/prisma/db";
 import { Container } from "@mui/material";
 import EditProductForm from "../../components/EditProductForm";
 
-type Props = { params: { id: string } };
+type Props = { params: { id: number } };
 
 export default async function UpdateExistProduct({ params }: Props) {
   const { id } = params;
 
-  if (!id) {
-    throw new Error("Product ID not provided");
-  }
+  // Fetch the product with the specified ID from the database
+  const product = await db.product.findFirst({ where: { id: Number(id) } });
 
-  // Hämta produkt med matchande id från databasen
-  const product = await db.product.findUnique({
-    where: { id: Number(id) },
-    include: { categories: true }, // Inkluderar relaterade kategorier
-  });
-
-  // Hämta alla kategorier från databasen
   const categories = await db.category.findMany();
 
-  // Om produkten inte hittades
   if (!product) {
     return (
       <Container
