@@ -60,7 +60,7 @@ This is a product website called Luxe that sells makeup and provides tutorials t
 
 #### Slutrapport
 
-- [ ] Skriv en rapport (2–3 sidor) som inkluderar:
+- [x] Skriv en rapport (2–3 sidor) som inkluderar:
   - Abstract på engelska.
   - Val av tech stack och motiveringar.
   - Dokumentation av arbetsprocess, planering och research.
