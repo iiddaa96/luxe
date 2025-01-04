@@ -2,7 +2,7 @@ import db from "@/prisma/db";
 import { Container } from "@mui/material";
 import EditProductForm from "../../components/EditProductForm";
 
-type Props = { params: { id: number } };
+type Props = { params: { id: string } };
 
 export default async function UpdateExistProduct({ params }: Props) {
   const { id } = params;
