@@ -26,8 +26,8 @@ const Confirmation = () => {
       >
         <Typography
           component="h1"
-          variant="h5"
-          style={{ textAlign: "center", fontWeight: "bold" }}
+          variant="h1"
+          style={{ textAlign: "center", fontWeight: "bold", fontSize: "2rem" }}
         >
           Confirmation Order
         </Typography>

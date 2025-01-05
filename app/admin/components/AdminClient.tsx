@@ -27,7 +27,7 @@ function AdminClient({ products }: ProductGridProps) {
           marginRight: "30px",
         }}
       >
-        {/* Lägger till produkt /> */}
+        {/*  Lägg till en ny produkt knapp som navigerar till /admin/product/new */}
         <Link
           aria-label="Navigate to add new product form"
           href="/admin/product/new"

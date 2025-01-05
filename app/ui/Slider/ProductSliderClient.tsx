@@ -29,6 +29,7 @@ export default function ProductSliderClient({
 }: ProductSliderClientProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
+  // Hanterar scrollning av produkter
   const handleScroll = (direction: number) => {
     if (containerRef.current) {
       containerRef.current.scrollBy({
@@ -48,12 +49,13 @@ export default function ProductSliderClient({
       }}
     >
       <Typography
-        variant="h4"
+        variant="h1"
         sx={{
           color: "#000000",
           padding: "1rem",
           fontWeight: 700,
           textAlign: "center",
+          fontSize: "1.5rem",
         }}
       >
         DISCOVER THE LATEST EYESHADOWS

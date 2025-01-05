@@ -10,6 +10,7 @@ import CheckoutButton from "../CheckoutButton";
 const Subheader: React.FC = () => {
   return (
     <main>
+      {/*  Synlig på desktop */}
       <Box
         sx={{
           display: { xs: "none", md: "flex" },

@@ -13,6 +13,7 @@ import React from "react";
 import CategoryCards from "../CategoryCards";
 import CheckoutButton from "../CheckoutButton";
 
+// Hanterar header-komponenten
 interface HeaderProps {
   handleOpenNavMenu: (event: React.MouseEvent<HTMLElement>) => void;
   anchorElNav: null | HTMLElement;

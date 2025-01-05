@@ -9,7 +9,7 @@ interface AddToCheckoutButtonProps {
   product: Product;
 }
 
-// This is a button that adds a product to the cart
+// Knapp för att lägga till en produkt i kundvagnen och visa en snackbar
 const AddToCheckoutButton: React.FC<AddToCheckoutButtonProps> = ({
   product,
 }) => {

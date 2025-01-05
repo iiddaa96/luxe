@@ -1,5 +1,4 @@
 import { Box, Button } from "@mui/material";
-// import CardMedia from "@mui/material/CardMedia";
 import Link from "next/link";
 
 export default function CategoryCards() {

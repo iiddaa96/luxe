@@ -9,6 +9,7 @@ export interface ItemsProps {
 export default function TotalPrice({ cart }: ItemsProps) {
   const [totalPrice, setTotalPrice] = useState(0);
 
+  // Räkna ut totalpriset för varukorgen varje gång varukorgen uppdateras
   useEffect(() => {
     const calculateTotalPrice = () => {
       return cart.reduce(

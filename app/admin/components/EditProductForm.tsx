@@ -309,6 +309,7 @@ export default function EditProductForm({ categories, product }: Props) {
     resolver: zodResolver(productSchema),
   });
 
+  // När kategorier ändras i select-fältet uppdateras valda kategorier
   const handleCategoryChange = (event: SelectChangeEvent<string[]>) => {
     setSelectedCategories(event.target.value as string[]);
   };

@@ -73,7 +73,7 @@ const Checkout = () => {
         </Grid>
       </Grid>
 
-      {/* Confirm knapp */}
+      {/* Knapp för att bekräfta köp */}
       <Box sx={{ mt: 3, display: "flex", justifyContent: "center" }}>
         <Button
           type="submit"

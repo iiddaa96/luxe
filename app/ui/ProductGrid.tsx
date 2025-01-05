@@ -14,6 +14,7 @@ import {
 import { Product } from "@prisma/client";
 import Link from "next/link";
 
+// Design för admin sidan
 const StyledCard = styled(Card)(({ theme }) => ({
   padding: theme.spacing(2),
   color: "black",

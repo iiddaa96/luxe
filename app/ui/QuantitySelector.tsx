@@ -21,19 +21,14 @@ const QuantityButton: React.FC<QuantityButtonProps> = ({
   const { cart, updateQuantity, removeFromCart } = useCart();
   const [quantity, setQuantity] = useState<number>(initialQuantity);
 
-  /**
-   * Funktion för att öka kvantiteten av produkten.
-   */
-
+  // Funktion för att öka kvantiteten av produkten.
   const incrementQuantity = () => {
     const newQuantity = quantity + 1;
     setQuantity(newQuantity);
     updateQuantity(productId, newQuantity);
   };
 
-  /**
-   * Funktion för att minska kvantiteten av produkten.
-   */
+  // Funktion för att minska kvantiteten av produkten.
   const decrementQuantity = () => {
     if (quantity > 1) {
       const newQuantity = quantity - 1;
@@ -48,6 +43,7 @@ const QuantityButton: React.FC<QuantityButtonProps> = ({
     (item) => item.id!.toString() === productId
   );
 
+  // Funktion för att räkna ut totalpriset för produkten.
   const calculateTotalPrice = (): number => {
     return (selectedProduct?.price || 0) * quantity;
   };

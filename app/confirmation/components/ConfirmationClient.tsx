@@ -8,6 +8,7 @@ export const ConfirmationClient = ({
 }: {
   initialCart: CartItem[];
 }) => {
+  // Används för att rensa vagnen och ställa in den bekräftade vagnen när bekräftelsesidan laddas
   const { clearCart, setConfirmedCart } = useCart();
   const clearCartCallback = useCallback(() => {
     clearCart();
@@ -19,6 +20,7 @@ export const ConfirmationClient = ({
     },
     [setConfirmedCart]
   );
+
   useEffect(() => {
     if (initialCart.length > 0) {
       setConfirmedCartCallback(initialCart);

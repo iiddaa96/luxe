@@ -1,6 +1,7 @@
 "use client";
 import { Button, Paper, Typography } from "@mui/material";
 
+//Bekräftar att användaren vill ta bort produkten från varukorgen
 interface ConfirmDeleteToastProps {
   selectedItemId: string;
   removeFromCart: (id: string) => void;
@@ -13,7 +14,6 @@ export const ConfirmDeleteToast = ({
   setShowDeleteToast,
 }: ConfirmDeleteToastProps) => {
   const handleConfirmDelete = () => {
-    // Remove the item from the cart
     removeFromCart(selectedItemId);
     setShowDeleteToast(false);
   };

@@ -48,7 +48,7 @@ function AboutUs() {
               fontSize: { xs: "20px", sm: "24px" },
             }}
             variant="h1"
-            component="h2"
+            component="h1"
             gutterBottom
           >
             ABOUT US

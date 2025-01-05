@@ -11,7 +11,6 @@ function Footer() {
       sx={{
         fontFamily: "Roboto, sans-serif",
         backgroundColor: "#FCF5F3",
-        // borderTop: "1px solid black",
         display: "flex",
         justifyContent: "center",
         gap: "10rem",

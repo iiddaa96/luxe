@@ -9,7 +9,6 @@ import { ConfirmDeleteToast } from "./DeleteToast";
 import { ItemsProps } from "./TotalPrice";
 
 export const CartItems = ({ cart }: ItemsProps) => {
-  console.log("Current cart in checkout:", cart);
   const { removeFromCart } = useCart();
   const [showDeleteToast, setShowDeleteToast] = useState(false);
   const [selectedItemId, setSelectedItemId] = useState<string>("");
@@ -47,8 +46,6 @@ export const CartItems = ({ cart }: ItemsProps) => {
               sx={{
                 width: { xs: "100%", sm: "15%" },
                 marginRight: { xs: "0", sm: "2rem" },
-                // display: "flex",
-                // justifyContent: "center",
               }}
             >
               <Image
@@ -91,7 +88,7 @@ export const CartItems = ({ cart }: ItemsProps) => {
             />
           </Box>
 
-          {/* Delete Button Position */}
+          {/*  Radera knapp för att ta bort en produkt från varukorgen */}
           <Box sx={{ position: "absolute", top: "8px", right: "8px" }}>
             <IconButton
               color="inherit"
@@ -103,6 +100,7 @@ export const CartItems = ({ cart }: ItemsProps) => {
           </Box>
         </Grid>
       ))}
+      {/* Om användaren klickar på radera-knappen visas en bekräftelse-toast */}
       {showDeleteToast && (
         <ConfirmDeleteToast
           selectedItemId={selectedItemId}

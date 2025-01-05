@@ -22,7 +22,12 @@ function Tutorial() {
           marginTop: "20px",
         }}
       >
-        <Typography variant="h3" component="h3" gutterBottom>
+        <Typography
+          sx={{ fontSize: "2.5rem" }}
+          variant="h1"
+          component="h1"
+          gutterBottom
+        >
           Your ultimate makeup guide
         </Typography>
         <Typography variant="body1" component="p">

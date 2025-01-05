@@ -3,8 +3,8 @@ import db from "@/prisma/db";
 import { Product } from "@prisma/client";
 
 export async function getAllProducts() {
+  // Hämta alla produkter som inte är arkiverade från databasen
   try {
-    // Lägg till en where-klasul för att hämta produkter som inte är arkiverade
     return await db.product.findMany({
       where: {
         isArchived: false, // Filtrera bort arkiverade produkter
@@ -16,6 +16,7 @@ export async function getAllProducts() {
   }
 }
 
+// Hämta en specifik produkt från databasen baserat på id
 export async function editProduct(
   updatedProduct: Product,
   chosenCategories: number[],
@@ -42,6 +43,7 @@ export async function editProduct(
   }
 }
 
+// Lägg till en ny produkt i databasen med valda kategorier
 export async function addNewProduct(
   newProduct: Product,
   chosenCategories: number[]
@@ -67,6 +69,7 @@ export async function addNewProduct(
   }
 }
 
+// Arkivera en produkt i databasen baserat på id
 export async function deleteProduct(id: number) {
   try {
     await db.product.delete({

@@ -5,7 +5,6 @@ import AddProductForm from "../../components/AddProductForm";
 export default async function AddNewProduct() {
   const categories = await db.category.findMany();
 
-  // Om inga kategorier finns, visa ett felmeddelande
   if (!categories || categories.length === 0) {
     return (
       <Container

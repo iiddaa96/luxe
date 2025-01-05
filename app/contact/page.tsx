@@ -37,14 +37,14 @@ function Contact() {
           <Typography
             sx={{ textAlign: "center", fontSize: "24px", fontWeight: "bold" }}
             variant="h1"
-            component="h2"
+            component="h1"
             gutterBottom
           >
             CONTACT US
           </Typography>
-          <form>
+
+          <Box aria-label="Contact form" component="form">
             <TextField
-              aria-label="Name"
               fullWidth
               label="Name"
               variant="outlined"
@@ -52,7 +52,6 @@ function Contact() {
               required
             />
             <TextField
-              aria-label="Email"
               fullWidth
               label="Email"
               variant="outlined"
@@ -61,7 +60,6 @@ function Contact() {
             />
             <TextField
               fullWidth
-              aria-label="Message"
               label="Message"
               variant="outlined"
               margin="normal"
@@ -84,7 +82,7 @@ function Contact() {
             >
               Send
             </Button>
-          </form>
+          </Box>
         </Box>
       </Box>
     </main>
