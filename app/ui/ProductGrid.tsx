@@ -36,7 +36,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
         variant="h1"
         aria-label="Admin title"
         sx={{
-          marginTop: "-1rem",
+          marginTop: "-3rem",
           display: "flex",
           justifyContent: "center",
           fontWeight: "bold",
@@ -51,7 +51,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
           {products.map((product: Product, index: number) => {
             return (
               <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-                <StyledCard>
+                <StyledCard sx={{ backgroundColor: "#FCF5F3" }}>
                   <CardActionArea>
                     <CardMedia
                       aria-label={product.alt}
