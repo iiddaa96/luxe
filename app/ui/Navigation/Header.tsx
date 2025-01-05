@@ -10,7 +10,6 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import React from "react";
-import CategoryCards from "../CategoryCards";
 import CheckoutButton from "../CheckoutButton";
 
 // Hanterar header-komponenten
@@ -80,7 +79,6 @@ const Header: React.FC<HeaderProps> = ({
               noWrap
               component="div"
               sx={{
-                fontFamily: "monospace",
                 fontWeight: 700,
                 letterSpacing: ".3rem",
                 color: "black",
@@ -126,18 +124,49 @@ const Header: React.FC<HeaderProps> = ({
             href="/admin"
             aria-label="Navigate to admin page"
             color="inherit"
-            sx={{ padding: "10px" }}
+            sx={{ fontWeight: "bold" }}
             onClick={handleCloseNavMenu}
           >
             Admin
           </MenuItem>
-          <CategoryCards />
+          <MenuItem
+            component={Link}
+            href="/categories/Lipstick"
+            color="inherit"
+            sx={{ fontWeight: "bold" }}
+          >
+            Lipstick
+          </MenuItem>
+          <MenuItem
+            component={Link}
+            href="/categories/Eyeshadow"
+            color="inherit"
+            sx={{ fontWeight: "bold" }}
+          >
+            Eyeshadow
+          </MenuItem>
+          <MenuItem
+            component={Link}
+            href="/categories/Foundation"
+            color="inherit"
+            sx={{ fontWeight: "bold" }}
+          >
+            Foundation
+          </MenuItem>
+          <MenuItem
+            component={Link}
+            href="/categories/Eyeliner"
+            color="inherit"
+            sx={{ fontWeight: "bold" }}
+          >
+            Eyeliner
+          </MenuItem>
           <MenuItem
             component={Link}
             href="/tutorial"
             aria-label="Navigate to tutorial page"
             color="inherit"
-            sx={{ padding: "10px" }}
+            sx={{ fontWeight: "bold" }}
             onClick={handleCloseNavMenu}
           >
             Tutorial

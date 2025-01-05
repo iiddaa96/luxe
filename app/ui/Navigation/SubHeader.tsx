@@ -4,7 +4,6 @@ import { IconButton } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Link from "next/link";
-import CategoryCards from "../CategoryCards";
 import CheckoutButton from "../CheckoutButton";
 
 const Subheader: React.FC = () => {
@@ -35,7 +34,7 @@ const Subheader: React.FC = () => {
             href="/admin"
             aria-label="Go to admin page"
             color="inherit"
-            sx={{ padding: "10px", fontWeight: "bold" }}
+            sx={{ fontWeight: "bold" }}
           >
             Admin
           </Button>
@@ -47,14 +46,45 @@ const Subheader: React.FC = () => {
               },
             }}
           >
-            <CategoryCards />
+            <Button
+              component={Link}
+              href="/categories/Lipstick"
+              color="inherit"
+              sx={{ padding: "14px", fontWeight: "bold" }}
+            >
+              Lipstick
+            </Button>
+            <Button
+              component={Link}
+              href="/categories/Eyeshadow"
+              color="inherit"
+              sx={{ padding: "14px", fontWeight: "bold" }}
+            >
+              Eyeshadow
+            </Button>
+            <Button
+              component={Link}
+              href="/categories/Foundation"
+              color="inherit"
+              sx={{ padding: "14px", fontWeight: "bold" }}
+            >
+              Foundation
+            </Button>
+            <Button
+              component={Link}
+              href="/categories/Eyeliner"
+              color="inherit"
+              sx={{ padding: "14px", fontWeight: "bold" }}
+            >
+              Eyeliner
+            </Button>
           </Box>
           <Button
             component={Link}
             href="/tutorial"
             aria-label="Go to tutorial page"
             color="inherit"
-            sx={{ padding: "10px", fontWeight: "bold" }}
+            sx={{ fontWeight: "bold" }}
           >
             Tutorial
           </Button>
@@ -64,7 +94,7 @@ const Subheader: React.FC = () => {
           href="favorite"
           aria-label="Go to favorite page"
           color="inherit"
-          sx={{ marginRight: "-4rem" }}
+          sx={{ marginRight: "-4rem", fontWeight: "bold" }}
         >
           <FavoriteIcon />
         </IconButton>

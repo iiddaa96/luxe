@@ -32,10 +32,8 @@ export const CartContext = createContext<CartContextType>({
 });
 
 export const useCart = () => useContext(CartContext);
-//Fel här för vercel
-export const CartProvider = ({
-  children,
-}: PropsWithChildren<React.ReactNode>) => {
+// Om jag ändrar till PropsWithChildren<React.ReactNode så fungerar inte min layout, men jag får ts fel på vercel här om jag inte ändrar
+export const CartProvider = ({ children }: PropsWithChildren<{}>) => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [confirmedCart, setConfirmedCart] = useState<CartItem[]>([]);
