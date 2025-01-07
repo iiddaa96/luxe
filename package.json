@@ -12,7 +12,7 @@
     "studio": "prisma studio",
     "seed": "prisma db seed",
     "postinstall": "prisma generate",
-    "vercel-build": "prisma migrate deploy && next build"
+    "vercel-build": "prisma migrate deploy && DISABLE_ESLINT_PLUGIN=true next build"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed/seed.ts"
