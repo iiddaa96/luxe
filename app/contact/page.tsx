@@ -40,7 +40,7 @@ function Contact() {
             component="h1"
             gutterBottom
           >
-            CONTACT US
+            CONTACT US!
           </Typography>
 
           <Box aria-label="Contact form" component="form">
